@@ -30,4 +30,10 @@ public class ItemController {
         itemRepository.save(item);
         return new ResponseEntity<>(item, HttpStatus.OK);
     }
+
+    @DeleteMapping(value ="/items/{id}")
+    public ResponseEntity deleteItem(@PathVariable Long id){
+        itemRepository.deleteById(id);
+        return new ResponseEntity<>(itemRepository.findAll(), HttpStatus.OK);
+    }
 }
