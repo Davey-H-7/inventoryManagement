@@ -20,21 +20,21 @@ class InventoryServiceApplicationTests {
 
 	@Test
 	public void createItem(){
-		Item pipe = new Item("pipe", "p001");
-		assertEquals("pipe", pipe.getName());
+		Item pipe = new Item("p001", 3, "10mm copper pipe");
+		assertEquals("p001", pipe.getModel());
 	}
 
 	@Test
 	public void createItemThenSave(){
-		Item pipe = new Item("pipe", "p001");
+		Item pipe = new Item("p001", 3, "10mm copper pipe");
 		itemRepository.save(pipe);
 	}
 
 	@Test
 	public void itemPropertiesCanBeSet(){
-		Item pipe = new Item("pipe", "p001");
-		pipe.setName("wheel");
-		assertEquals("wheel", pipe.getName());
+		Item pipe = new Item("p001", 3, "10mm copper pipe");
+		pipe.setQuantity(4);
+		assertEquals(4, pipe.getQuantity());
 	}
 
 }
