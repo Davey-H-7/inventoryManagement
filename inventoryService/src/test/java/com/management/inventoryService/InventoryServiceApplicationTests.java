@@ -38,13 +38,16 @@ class InventoryServiceApplicationTests {
 
 	@Test
 	public void createItem(){
-		Item pipe = new Item("p001", 3, "10mm copper pipe", null);
+		Order order = new Order("piper does piping");
+		Item pipe = new Item("p001", 3, "10mm copper pipe", order);
 		assertEquals("p001", pipe.getModel());
 	}
 
 	@Test
 	public void createItemThenSave(){
-		Item pipe = new Item("p001", 3, "10mm copper pipe", null);
+		Order order = new Order("piper does piping");
+		orderRepository.save(order);
+		Item pipe = new Item("p001", 3, "10mm copper pipe", order);
 		itemRepository.save(pipe);
 	}
 
