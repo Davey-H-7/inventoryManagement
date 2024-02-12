@@ -21,7 +21,7 @@ public class Item implements Serializable {
     private Status status;
 
     @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
+    @JoinColumn(name = "order_id")
     private Order order;
 
 
