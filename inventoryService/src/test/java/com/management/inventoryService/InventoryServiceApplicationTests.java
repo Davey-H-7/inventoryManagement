@@ -3,6 +3,7 @@ package com.management.inventoryService;
 import com.management.inventoryService.models.Item;
 import com.management.inventoryService.models.Order;
 import com.management.inventoryService.repositories.ItemRepository;
+import com.management.inventoryService.repositories.OrderRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +16,10 @@ class InventoryServiceApplicationTests {
 	@Autowired
 	ItemRepository itemRepository;
 
+	@Autowired
+	OrderRepository orderRepository;
+
+
 	@Test
 	void contextLoads() {
 	}
@@ -23,6 +28,12 @@ class InventoryServiceApplicationTests {
 	public void createOrder(){
 		Order order = new Order("piper does piping");
 		assertEquals("piper does piping", order.getClient());
+	}
+
+	@Test
+	public void createOrderThenSave(){
+		Order order = new Order("piper does piping");
+		orderRepository.save(order);
 	}
 
 	@Test
