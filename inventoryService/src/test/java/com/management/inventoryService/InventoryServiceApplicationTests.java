@@ -1,6 +1,7 @@
 package com.management.inventoryService;
 
 import com.management.inventoryService.models.Item;
+import com.management.inventoryService.models.Order;
 import com.management.inventoryService.repositories.ItemRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,12 @@ class InventoryServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
+	}
+
+	@Test
+	public void createOrder(){
+		Order order = new Order("piper does piping");
+		assertEquals("piper does piping", order.getClient());
 	}
 
 	@Test
