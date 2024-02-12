@@ -8,12 +8,21 @@ import java.io.Serializable;
 @Table(name = "items")
 public class Item implements Serializable {
 
-
+    @Column(name="model")
     private String model;
 
+    @Column(name="quantity")
     private int quantity;
 
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "status")
+    private Status status;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
 
 
 
@@ -21,23 +30,16 @@ public class Item implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Item(String model, int quantity, String description) {
+    public Item(String model, int quantity, String description, Order order) {
         this.model = model;
         this.quantity = quantity;
         this.description = description;
+        this.status = Status.NEW;
+        this.order = order;
     }
 
     public Item() {
     }
-
-
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
 
     public String getModel() {
         return model;
