@@ -64,4 +64,20 @@ public class Item implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 }
