@@ -1,5 +1,6 @@
 package com.management.inventoryService.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -20,6 +21,7 @@ public class Item implements Serializable {
     @Column(name = "status")
     private Status status;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;

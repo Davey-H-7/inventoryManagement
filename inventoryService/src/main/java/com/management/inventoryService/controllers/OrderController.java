@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 public class OrderController {
-    
+
         @Autowired
         OrderRepository orderRepository;
 
@@ -49,4 +49,4 @@ public class OrderController {
         }
     }
 
-}
+
