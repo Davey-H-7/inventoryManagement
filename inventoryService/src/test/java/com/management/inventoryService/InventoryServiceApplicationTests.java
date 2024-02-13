@@ -44,7 +44,7 @@ class InventoryServiceApplicationTests {
 	}
 
 	@Test
-	public void createItemThenSave(){
+	public void createOrderAndItemThenSave(){
 		Order order = new Order("piper does piping");
 		orderRepository.save(order);
 		Item pipe = new Item("p001", 3, "10mm copper pipe", order);

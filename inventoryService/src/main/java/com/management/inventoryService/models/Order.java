@@ -1,5 +1,6 @@
 package com.management.inventoryService.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ public class Order {
 
     @Column(name ="client")
     private String client;
+
 
     @OneToMany(mappedBy = "order")
     private List<Item> items;
