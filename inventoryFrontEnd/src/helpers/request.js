@@ -1,9 +1,8 @@
 class Request {
 
-
-    get = (url) => {
-        fetch(url)
-        .then(res=>res.json())
+    async get(url){
+        const result = await fetch(url);
+        return result.json();
     }
 }
  
