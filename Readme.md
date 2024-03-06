@@ -12,9 +12,9 @@ To create a management app for a fabrication company:
 - In a terminal create database with name 'fabrication_inventory'
 
 - To run the backend:
-    -Open the project 'inventoryService' in IDE such as IntelliJ
-    -Run CoursebookingsApplication.java (this will run the DataLoader component to populate the database)
+- Open the project 'inventoryService' in IDE such as IntelliJ
+- Run CoursebookingsApplication.java (this will run the DataLoader component to populate the database)
 
-  - To run the frontend:
-    -cd into folder 'inventoryFrontEnd' in the terminal
-    -run command 'npm run dev'
+- To run the frontend:
+- cd into folder 'inventoryFrontEnd' in the terminal
+- run command 'npm run dev'
