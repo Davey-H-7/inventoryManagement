@@ -1,9 +1,12 @@
-import React from 'react';
 
-const Order = () => {
-  
+
+const Order = ({order}) => {
+
     return (
-        <h1> This is an order </h1>
+        <li> 
+            <p>Order No: {order.id} Client: {order.client}</p>
+            <p> </p> 
+        </li>
     )
 
 }

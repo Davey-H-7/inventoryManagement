@@ -1,13 +1,19 @@
-import React from 'react';
+
 import Order from './Order';
 
-const OrderList = () => {
+const OrderList = ({orders}) => {
   
+    let orderNodes = orders.map(order => {
+        return <Order order = {order} key ={order.id}/>
+    });
+      
 
     return (
         <>
         <h1> This is the order list </h1>
-        <Order/>
+        <ul>
+        {orderNodes}
+        </ul>
         </>
     )
 }

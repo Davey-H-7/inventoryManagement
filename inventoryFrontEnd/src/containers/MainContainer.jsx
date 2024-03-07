@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Request from '../helpers/request';
 import OrderList from '../components/OrderList';
 
@@ -23,7 +23,7 @@ const MainContainer = () => {
     return(
         <>
         <h1>Main Container</h1>
-        <OrderList/>
+        <OrderList orders = {orders}/>
         </>
     )
   
