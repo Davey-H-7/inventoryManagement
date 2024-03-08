@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,6 +14,12 @@ public class Order {
     @Column(name ="client")
     private String client;
 
+    @Column(name ="dueDate")
+    private Date dueDate;
+
+    @Column(name ="priority")
+    private Priority priority;
+
 
     @OneToMany(mappedBy = "order")
     private List<Item> items;
@@ -21,8 +28,11 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Order(String client) {
+    public Order(String client, Date dueDate) {
         this.client = client;
+        this.dueDate = dueDate;
+        this.priority = Priority.Low;
+
     }
 
     public Order() {
@@ -50,5 +60,21 @@ public class Order {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Date getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
     }
 }

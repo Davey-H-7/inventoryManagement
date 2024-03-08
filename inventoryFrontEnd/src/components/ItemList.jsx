@@ -9,7 +9,10 @@ const itemNodes = items.map((item) => {
 
     return(
         <div className='itemList'>
-            {itemNodes}
+            <h1> All Items in pipeline </h1>
+                <ul>
+                    {itemNodes}
+                </ul>
         </div>
 
     )
