@@ -27,9 +27,9 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args){
-        Date dueDate1 = new Date(2024, 6, 3);
-        Date dueDate2 = new Date(2024, 7, 12);
-        Date dueDate3 = new Date(2024, 9, 26);
+        Date dueDate1 = new Date(124, 6, 3);
+        Date dueDate2 = new Date(124, 7, 12);
+        Date dueDate3 = new Date(124, 9, 26);
         Order order1 = new Order("Building Boys", dueDate1);
         orderRepository.save(order1);
         Order order2 = new Order("Car Cannibals", dueDate2);
