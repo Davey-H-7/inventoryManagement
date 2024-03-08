@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Request from '../helpers/request';
-import OrderList from '../components/OrderList';
+import { Routes, Route } from 'react-router-dom';
+import OrderContainer from './OrderContainer';
 
 const MainContainer = () => {
     const request = new Request
@@ -21,10 +22,11 @@ const MainContainer = () => {
     }, [])
 
     return(
-        <>
-        <h1>Main Container</h1>
-        <OrderList orders = {orders}/>
-        </>
+        <div className='mainContainer'>
+          <Routes>
+            <Route path ="/orders/*" element = {<OrderContainer orders = {orders}/>} />
+          </Routes>
+        </div>
     )
   
 }
