@@ -1,15 +1,14 @@
-
 import './App.css'
 import MainContainer from './containers/MainContainer'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
 
 
   return (
-    <>
-      <h1> This is the app </h1>
+    <BrowserRouter>
       <MainContainer/>
-    </>
+    </BrowserRouter>
   )
 }
 
