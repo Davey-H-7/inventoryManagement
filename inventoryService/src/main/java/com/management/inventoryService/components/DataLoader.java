@@ -10,6 +10,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 
 @Profile("!test")
 @Component
@@ -25,11 +27,14 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args){
-        Order order1 = new Order("Building Boys");
+        Date dueDate1 = new Date(2024, 6, 3);
+        Date dueDate2 = new Date(2024, 7, 12);
+        Date dueDate3 = new Date(2024, 9, 26);
+        Order order1 = new Order("Building Boys", dueDate1);
         orderRepository.save(order1);
-        Order order2 = new Order("Car Cannibals");
+        Order order2 = new Order("Car Cannibals", dueDate2);
         orderRepository.save(order2);
-        Order order3 = new Order("Factory Friends");
+        Order order3 = new Order("Factory Friends", dueDate3);
         orderRepository.save(order3);
 
 
