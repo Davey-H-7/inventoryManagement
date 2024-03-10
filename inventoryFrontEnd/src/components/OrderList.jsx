@@ -1,4 +1,5 @@
 
+import {redirect} from 'react-router-dom';
 import Order from './Order';
 
 const OrderList = ({orders}) => {
@@ -11,7 +12,7 @@ const OrderList = ({orders}) => {
     return (
         <>
         <h1> All Orders </h1>
-        <button >Add New Order</button>
+        <button onClick = {redirect("/new")}>Add New Order</button>
         <ul>
         {orderNodes}
         </ul>
