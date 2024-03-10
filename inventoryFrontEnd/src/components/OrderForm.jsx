@@ -16,10 +16,18 @@ const [stateOrder, setStateOrder] = useState(
       setStateOrder(copiedOrder)
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(event);
+    }
+
 return (
     <div className="orderForm">
-        <input type = "text" placeholder = "Name of Client" name = "client" onChange={handleChange} value = {stateOrder.client}/>
-
+        <form onSubmit ={handleSubmit}>
+            <input type = "text" placeholder = "Name of Client" name = "client" onChange={handleChange} value = {stateOrder.client}/>
+            <input type = "date" name = "dueDate" onChange={handleChange} value = {stateOrder.dueDate}/>
+            <button type = "submit"> Submit </button>
+        </form>
         <button onClick = {setFalse} >Cancel</button>
     </div>
 )
