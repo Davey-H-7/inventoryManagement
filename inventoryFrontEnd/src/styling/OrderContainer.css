@@ -1,0 +1,24 @@
+.orderContainer{
+    max-width: 80%;
+    margin:auto;
+    justify-content: center;
+}
+
+
+ul {
+    list-style: none;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:auto;
+    max-width: 100%;
+
+}
+
+li {
+    border-width: 2px;
+    border-style: double;
+    width: 40%
+}
+
+

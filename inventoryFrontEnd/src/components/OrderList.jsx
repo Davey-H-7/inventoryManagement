@@ -1,7 +1,9 @@
 
 import Order from './Order';
 
-const OrderList = ({orders}) => {
+
+
+const OrderList = ({orders, setTrue}) => {
   
     let orderNodes = orders.map(order => {
         return <Order order = {order} key ={order.id}/>
@@ -10,7 +12,8 @@ const OrderList = ({orders}) => {
 
     return (
         <>
-        <h1> This is the order list </h1>
+        <h1> All Orders </h1>
+        <button onClick = {setTrue}>Add New Order</button>
         <ul>
         {orderNodes}
         </ul>

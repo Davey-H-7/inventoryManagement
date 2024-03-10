@@ -36,6 +36,7 @@ public class Order {
     }
 
     public Order() {
+        this.priority = Priority.Low;
     }
 
     public String getClient() {
