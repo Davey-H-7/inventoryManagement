@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-const OrderForm = ({setFalse}) => {
+const OrderForm = ({setFalse, handlePost}) => {
   
 const [stateOrder, setStateOrder] = useState(
     {
@@ -18,7 +18,7 @@ const [stateOrder, setStateOrder] = useState(
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(event);
+        handlePost(stateOrder);
     }
 
 return (

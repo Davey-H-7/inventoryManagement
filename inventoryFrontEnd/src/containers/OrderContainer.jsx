@@ -2,10 +2,13 @@ import OrderList from "../components/OrderList"
 import OrderForm from "../components/OrderForm"
 import '../styling/OrderContainer.css'
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 
 const OrderContainer = ({orders}) => {
+
+    const navigate = useNavigate();
 
     const [makeOrder, setMakeOrder] = useState(false)
   
@@ -20,9 +23,19 @@ const OrderContainer = ({orders}) => {
         console.log(makeOrder)
       }
 
+    const handlePost = (order) =>{
+        console.log("handlePost triggered");
+        fetch("/api/orders", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(order)
+        })
+        .then(() => makeOrderSettoFalse())
+    }
+
 return(
     <div className="orderContainer">
-       {makeOrder? <OrderForm setFalse = {makeOrderSettoFalse}/> : <OrderList orders ={orders} setTrue = {makeOrderSettoTrue}/>}
+       {makeOrder? <OrderForm setFalse = {makeOrderSettoFalse} handlePost ={handlePost}/> : <OrderList orders ={orders} setTrue = {makeOrderSettoTrue}/>}
     </div>)}
 
 
