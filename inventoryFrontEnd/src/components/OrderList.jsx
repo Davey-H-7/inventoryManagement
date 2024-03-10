@@ -10,7 +10,8 @@ const OrderList = ({orders}) => {
 
     return (
         <>
-        <h1> This is the order list </h1>
+        <h1> All Orders </h1>
+        <button >Add New Order</button>
         <ul>
         {orderNodes}
         </ul>

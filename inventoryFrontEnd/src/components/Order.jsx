@@ -1,9 +1,7 @@
-import React from "react"
 
 
 const Order = ({order}) => {
-    let dateArray = order.dueDate.split("T")
-    let dueDate = dateArray[0]
+    let dueDate = convertDate(order.dueDate)
     
 
     return (
@@ -15,6 +13,12 @@ const Order = ({order}) => {
         </li>
     )
 
+}
+
+const convertDate = (javaDate) => {
+    let dateArray = javaDate.split("T")
+    let newDate = dateArray[0]
+    return newDate
 }
 
 export default Order
