@@ -2,13 +2,12 @@ import OrderList from "../components/OrderList"
 import OrderForm from "../components/OrderForm"
 import '../styling/OrderContainer.css'
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 
 
 
-const OrderContainer = ({orders}) => {
 
-    const navigate = useNavigate();
+const OrderContainer = ({orders, refresh}) => {
+
 
     const [makeOrder, setMakeOrder] = useState(false)
   
@@ -30,6 +29,7 @@ const OrderContainer = ({orders}) => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(order)
         })
+        .then(() => refresh())
         .then(() => makeOrderSettoFalse())
     }
 
