@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-constOrderForm = () => {
+const OrderForm = ({setFalse}) => {
   
 const [stateOrder, setStateOrder] = useState(
     {
@@ -20,6 +20,8 @@ return (
     <div className="orderForm">
         <input type = "text" placeholder = "Name of Client" name = "client" onChange={handleChange} value = {stateOrder.client}/>
 
+        <button onClick = {setFalse} >Cancel</button>
     </div>
 )
 }
+export default OrderForm
