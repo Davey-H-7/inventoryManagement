@@ -1,6 +1,5 @@
 .orderContainer{
     max-width: 80%;
-    background-color: aqua;
     margin:auto;
     justify-content: center;
 }
@@ -19,8 +18,7 @@ ul {
 li {
     border-width: 2px;
     border-style: double;
-    min-width: 25%;
-    max-width: 40%
+    width: 40%
 }
 
 
