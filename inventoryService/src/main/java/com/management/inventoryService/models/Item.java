@@ -41,6 +41,7 @@ public class Item implements Serializable {
     }
 
     public Item() {
+        this.status = Status.NEW;
     }
 
     public String getModel() {
