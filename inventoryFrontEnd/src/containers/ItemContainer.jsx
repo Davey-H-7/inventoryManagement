@@ -4,7 +4,7 @@ import { useState } from "react"
 
 
 
-const ItemContainer = ({items, refresh}) => {
+const ItemContainer = ({items, orders, refresh}) => {
   
     const [makeItem, setMakeItem] = useState(false)
   
@@ -32,7 +32,7 @@ const ItemContainer = ({items, refresh}) => {
 
 return(
     <div className="itemContainer">
-       {makeItem? <ItemForm setFalse = {makeItemSettoFalse} handlePost ={handlePost}/> : <ItemList items ={items} setTrue = {makeItemSettoTrue}/>}
+       {makeItem? <ItemForm setFalse = {makeItemSettoFalse} handlePost ={handlePost} orders ={orders}/> : <ItemList items ={items} setTrue = {makeItemSettoTrue}/>}
     </div>)
 }
 

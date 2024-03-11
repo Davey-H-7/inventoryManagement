@@ -31,7 +31,7 @@ const MainContainer = () => {
         <div className='mainContainer'>
           <Routes>
             <Route path ="/orders/*" element = {<OrderContainer orders = {orders} refresh = {handleRefresh}/>} />
-            <Route path ="/items/*" element = {<ItemContainer items = {items} refresh = {handleRefresh}/>} />
+            <Route path ="/items/*" element = {<ItemContainer items = {items} orders ={orders} refresh = {handleRefresh}/>} />
           </Routes>
         </div>
     )
