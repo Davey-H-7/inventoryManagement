@@ -36,7 +36,8 @@ const OrderContainer = ({orders, refresh}) => {
 return(
     <div className="orderContainer">
        {makeOrder? <OrderForm setFalse = {makeOrderSettoFalse} handlePost ={handlePost}/> : <OrderList orders ={orders} setTrue = {makeOrderSettoTrue}/>}
-    </div>)}
+    </div>)
+}
 
 
 export default OrderContainer
