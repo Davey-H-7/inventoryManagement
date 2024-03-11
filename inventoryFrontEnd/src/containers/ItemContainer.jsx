@@ -1,13 +1,40 @@
+import ItemForm from "../components/ItemForm.jsx"
 import ItemList from "../components/ItemList.jsx"
+import { useState } from "react"
 
 
-const ItemContainer = ({items}) => {
+
+const ItemContainer = ({items, refresh}) => {
+  
+    const [makeItem, setMakeItem] = useState(false)
   
 
+    const makeItemSettoTrue = () => {
+      setMakeItem(true)
+      console.log(makeItem);
+    }
+
+    const makeItemSettoFalse = () => {
+        setMakeItem(false)
+        console.log(makeItem)
+      }
+
+    const handlePost = (item) =>{
+        console.log("handlePost triggered");
+        fetch("/api/items", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(item)
+        })
+        .then(() => refresh())
+        .then(() => makeItemSettoFalse())
+    }
 
 return(
-    <ItemList items ={items}/>
-)}
+    <div className="itemContainer">
+       {makeItem? <ItemForm setFalse = {makeItemSettoFalse} handlePost ={handlePost}/> : <ItemList items ={items} setTrue = {makeItemSettoTrue}/>}
+    </div>)
+}
 
 
 export default ItemContainer
