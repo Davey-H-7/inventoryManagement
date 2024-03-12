@@ -1,26 +1,14 @@
 import OrderList from "../components/OrderList"
 import OrderForm from "../components/OrderForm"
+import OrderDetail from "../components/OrderDetail"
 import '../styling/OrderContainer.css'
 import { useState } from "react"
+import {Routes, Route} from "react-router-dom"
 
 
 
 
 const OrderContainer = ({orders, refresh}) => {
-
-
-    const [makeOrder, setMakeOrder] = useState(false)
-  
-
-    const makeOrderSettoTrue = () => {
-      setMakeOrder(true)
-      console.log(makeOrder);
-    }
-
-    const makeOrderSettoFalse = () => {
-        setMakeOrder(false)
-        console.log(makeOrder)
-      }
 
     const handlePost = (order) =>{
         console.log("handlePost triggered");
@@ -30,13 +18,19 @@ const OrderContainer = ({orders, refresh}) => {
             body: JSON.stringify(order)
         })
         .then(() => refresh())
-        .then(() => makeOrderSettoFalse())
     }
 
 return(
     <div className="orderContainer">
-       {makeOrder? <OrderForm setFalse = {makeOrderSettoFalse} handlePost ={handlePost}/> : <OrderList orders ={orders} setTrue = {makeOrderSettoTrue}/>}
-    </div>)
+        <Routes>
+            <Route path ="/" element ={<OrderList orders ={orders}/>}/>
+
+            <Route path ="/new" element = {<OrderForm  handlePost ={handlePost}/>}/>
+
+            <Route path ="/:id" element = {<OrderDetail/>}/>
+        </Routes>
+    </div>
+)   
 }
 
 

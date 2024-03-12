@@ -1,11 +1,14 @@
-
 import Item from './Item';
 
 const ItemList = ({items, setTrue}) => {
+
+    if(items.length === 0){
+        return <p>Loading items</p>
+    }
   
-const itemNodes = items.map((item) => {
-  return <Item item = {item} key ={item.id}/>
-})
+    const itemNodes = items.map((item) => {
+         return <Item item = {item} key ={item.id}/>
+    })
 
     return(
         <div className='itemList'>
