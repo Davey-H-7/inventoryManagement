@@ -1,23 +1,12 @@
 import ItemForm from "../components/ItemForm.jsx"
 import ItemList from "../components/ItemList.jsx"
-import { useState } from "react"
+import ItemDetail from "../components/ItemDetail.jsx"
+import { Routes, Route } from "react-router-dom"
+
 
 
 
 const ItemContainer = ({items, orders, refresh}) => {
-  
-    const [makeItem, setMakeItem] = useState(false)
-  
-
-    const makeItemSettoTrue = () => {
-      setMakeItem(true)
-      console.log(makeItem);
-    }
-
-    const makeItemSettoFalse = () => {
-        setMakeItem(false)
-        console.log(makeItem)
-      }
 
     const handlePost = (item) =>{
         console.log("handlePost triggered");
@@ -27,12 +16,16 @@ const ItemContainer = ({items, orders, refresh}) => {
             body: JSON.stringify(item)
         })
         .then(() => refresh())
-        .then(() => makeItemSettoFalse())
     }
 
 return(
     <div className="itemContainer">
-       {makeItem? <ItemForm setFalse = {makeItemSettoFalse} handlePost ={handlePost} orders ={orders}/> : <ItemList items ={items} setTrue = {makeItemSettoTrue}/>}
+        <Routes>
+            <Route path="/" element = {<ItemList items ={items}/>}/>
+            <Route path ="/new" element = {<ItemForm handlePost ={handlePost} orders ={orders}/> }/>
+            <Route path ="/:id" element = {<ItemDetail/>}/>
+        </Routes>
+
     </div>)
 }
 
