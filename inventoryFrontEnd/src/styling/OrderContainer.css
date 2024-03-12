@@ -1,5 +1,5 @@
 .orderContainer{
-    max-width: 80%;
+    max-width: 100%;
     margin:auto;
     justify-content: center;
 }
@@ -15,10 +15,18 @@ ul {
 
 }
 
-li {
+.order {
     border-width: 2px;
     border-style: double;
-    width: 40%
+    width: 30%;
+    color: white; 
+    
 }
+
+.order:hover{
+    color:aqua;
+}
+
+
 
 
