@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-const ItemForm = ({handlePost, setFalse, orders}) => {
+const ItemForm = ({handlePost, orders}) => {
   
     const [stateItem, setStateItem] = useState(
         {
@@ -55,7 +55,7 @@ const ItemForm = ({handlePost, setFalse, orders}) => {
                 {stateItem.order? <button type = "submit" > Submit </button>: <button disabled type = "submit" > Submit </button> }
                     
             </form>
-            <button onClick = {setFalse} >Cancel</button>
+            <button onClick = {() => window.location ='/items'} >Cancel</button>
         </div>
     )
 }

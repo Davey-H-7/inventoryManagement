@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom"
 
 
 
-const ItemContainer = ({items, orders, refresh}) => {
+const ItemContainer = ({items, orders}) => {
 
     const handlePost = (item) =>{
         console.log("handlePost triggered");
@@ -15,7 +15,7 @@ const ItemContainer = ({items, orders, refresh}) => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(item)
         })
-        .then(() => refresh())
+        .then(() => window.location ='/items')
     }
 
 return(

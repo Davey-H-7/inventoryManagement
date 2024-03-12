@@ -2,13 +2,12 @@ import OrderList from "../components/OrderList"
 import OrderForm from "../components/OrderForm"
 import OrderDetail from "../components/OrderDetail"
 import '../styling/OrderContainer.css'
-import { useState } from "react"
 import {Routes, Route} from "react-router-dom"
 
 
 
 
-const OrderContainer = ({orders, refresh}) => {
+const OrderContainer = ({orders}) => {
 
     const handlePost = (order) =>{
         console.log("handlePost triggered");
@@ -17,7 +16,7 @@ const OrderContainer = ({orders, refresh}) => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(order)
         })
-        .then(() => refresh())
+        .then(() => window.location ='/orders')
     }
 
 return(

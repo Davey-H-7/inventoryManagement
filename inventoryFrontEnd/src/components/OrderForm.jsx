@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-const OrderForm = ({setFalse, handlePost}) => {
+const OrderForm = ({handlePost}) => {
   
 const [stateOrder, setStateOrder] = useState(
     {
@@ -28,7 +28,7 @@ return (
             <input type = "date" name = "dueDate" onChange={handleChange} value = {stateOrder.dueDate}/>
             <button type = "submit"> Submit </button>
         </form>
-        <button onClick = {setFalse} >Cancel</button>
+        <button onClick = {() => window.location ='/orders'} >Cancel</button>
     </div>
 )
 }
