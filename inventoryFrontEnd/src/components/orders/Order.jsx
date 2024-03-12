@@ -1,16 +1,16 @@
-
+import { Link } from "react-router-dom"
 
 const Order = ({order}) => {
-    let dueDate = convertDate(order.dueDate)
+    const dueDate = convertDate(order.dueDate)
     
-
+    const orderUrl = "/orders/" + order.id
     return (
-        <li className="order"> 
+        <Link className={"order"} to={orderUrl}> 
             <p>Order No: {order.id}</p>
             <p>Client: {order.client} </p>
             <p>Priority: {order.priority}</p>
             <p>Due on: {dueDate}</p>
-        </li>
+        </Link>
     )
 
 }
