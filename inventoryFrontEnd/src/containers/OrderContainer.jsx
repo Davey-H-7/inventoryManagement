@@ -1,6 +1,6 @@
-import OrderList from "../components/OrderList"
-import OrderForm from "../components/OrderForm"
-import OrderDetail from "../components/OrderDetail"
+import OrderList from "../components/orders/OrderList"
+import OrderForm from "../components/orders/OrderForm"
+import OrderDetail from "../components/orders/OrderDetail"
 import '../styling/OrderContainer.css'
 import {Routes, Route} from "react-router-dom"
 
