@@ -30,9 +30,6 @@ const MainContainer = () => {
           }
       }
   }
-
-
-
     return(
         <div className='mainContainer'>
           <Routes>

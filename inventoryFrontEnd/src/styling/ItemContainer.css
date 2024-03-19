@@ -1,0 +1,29 @@
+.itemContainer{
+    max-width: 100%;
+
+}
+
+
+ul {
+    list-style: none;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:auto;
+    max-width: 100%;
+
+}
+
+.item {
+    border-width: 2px;
+    border-style: double;
+    width: 30%;
+    color: #213547;
+    
+}
+
+.item:hover{
+    color: white;
+}
+
+

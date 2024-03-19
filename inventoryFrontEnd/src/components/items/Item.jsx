@@ -3,8 +3,9 @@
 const Item = ({item}) => {
   
 return(
-    <li>
-        Model: {item.model} Status: {item.status}
+    <li className="item">
+        Model: {item.model} <br/>
+        Status: {item.status}
     </li>
 )
 
