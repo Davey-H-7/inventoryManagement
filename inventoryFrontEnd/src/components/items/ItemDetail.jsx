@@ -1,8 +1,6 @@
 
 
-const ItemDetail = ({item}) => {
-
-    console.log(item);
+const ItemDetail = ({item, handleDelete}) => {
   
     return(
         <div className="itemDetail">
@@ -11,7 +9,7 @@ const ItemDetail = ({item}) => {
         <h3>Quantity Required: {item.quantity}</h3>
         <h3>Status: {item.status}</h3>
         <p> {item.description}</p>
-
+        <button onClick={() => handleDelete(item)}> Delete Item </button>
         </div>
     )
 }
