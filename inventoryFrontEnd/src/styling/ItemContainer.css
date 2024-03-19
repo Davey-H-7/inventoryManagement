@@ -1,11 +1,11 @@
-.orderContainer{
+.itemContainer{
     max-width: 100%;
 
 }
 
 
 ul {
- 
+    list-style: none;
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -14,7 +14,7 @@ ul {
 
 }
 
-.order {
+.item {
     border-width: 2px;
     border-style: double;
     width: 30%;
@@ -22,15 +22,8 @@ ul {
     
 }
 
-.order:hover{
+.item:hover{
     color: #213547;
 }
-
-.detail ul{
-    list-style: circle;
-    display:inline-block
-}
-
-
 
 

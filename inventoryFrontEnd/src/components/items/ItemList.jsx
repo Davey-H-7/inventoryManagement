@@ -20,7 +20,7 @@ const ItemList = ({items}) => {
     return(
         <div className='itemList'>
             <h1> All Items in pipeline </h1>
-            <button onClick = {onAdd}>Add New Order</button>
+            <button onClick = {onAdd}>Add New Item</button>
                 <ul>
                     {itemNodes}
                 </ul>
