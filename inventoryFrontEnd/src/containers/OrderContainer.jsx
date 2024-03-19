@@ -2,12 +2,12 @@ import OrderList from "../components/orders/OrderList"
 import OrderForm from "../components/orders/OrderForm"
 import OrderDetail from "../components/orders/OrderDetail"
 import '../styling/OrderContainer.css'
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route, useParams} from "react-router-dom"
 
 
 
 
-const OrderContainer = ({orders}) => {
+const OrderContainer = ({orders, getById}) => {
 
     const handlePost = (order) =>{
         console.log("handlePost triggered");
@@ -19,6 +19,12 @@ const OrderContainer = ({orders}) => {
         .then(() => window.location ='/orders')
     }
 
+    const OrderDetailWrapper = () => {
+        const {id}= useParams();
+        const foundOrder = getById(id, orders);
+        return <OrderDetail order = {foundOrder}/>
+    }
+
 return(
     <div className="orderContainer">
         <Routes>
@@ -26,7 +32,7 @@ return(
 
             <Route path ="/new" element = {<OrderForm  handlePost ={handlePost}/>}/>
 
-            <Route path ="/:id" element = {<OrderDetail/>}/>
+            <Route path ="/:id" element = {<OrderDetailWrapper/>}/>
         </Routes>
     </div>
 )   

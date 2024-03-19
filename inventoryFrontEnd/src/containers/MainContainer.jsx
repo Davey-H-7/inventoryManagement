@@ -23,13 +23,21 @@ const MainContainer = () => {
       })
     }, [])
 
+    const getById = (id,array) => {
+      for (let object of array){
+          if (object.id == id){
+              return object;
+          }
+      }
+  }
+
 
 
     return(
         <div className='mainContainer'>
           <Routes>
-            <Route path ="/orders/*" element = {<OrderContainer orders = {orders} />} />
-            <Route path ="/items/*" element = {<ItemContainer items = {items} orders ={orders}/>} />
+            <Route path ="/orders/*" element = {<OrderContainer orders = {orders} getById = {getById}/>} />
+            <Route path ="/items/*" element = {<ItemContainer items = {items} orders ={orders} getById = {getById}/>} />
           </Routes>
         </div>
     )

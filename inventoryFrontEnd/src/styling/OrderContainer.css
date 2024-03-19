@@ -2,6 +2,7 @@
     max-width: 100%;
     margin:auto;
     justify-content: center;
+
 }
 
 
@@ -24,7 +25,11 @@ ul {
 }
 
 .order:hover{
-    color:aqua;
+    color: lightcoral;
+}
+
+.detail{
+    list-style: circle;
 }
 
 
