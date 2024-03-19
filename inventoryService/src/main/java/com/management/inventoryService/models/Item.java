@@ -32,6 +32,7 @@ public class Item implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     public Item(String model, int quantity, String description, Order order) {
         this.model = model;
         this.quantity = quantity;
@@ -82,5 +83,13 @@ public class Item implements Serializable {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
     }
 }

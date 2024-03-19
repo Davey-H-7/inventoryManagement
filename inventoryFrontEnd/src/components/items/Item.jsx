@@ -1,14 +1,15 @@
-
+import { Link } from "react-router-dom"
 
 const Item = ({item}) => {
+
+    const itemURL = "/items/" + item.id
   
 return(
-    <li className="item">
+    <Link className="item" to ={itemURL}>
         Model: {item.model} <br/>
         Status: {item.status}
-    </li>
+    </Link>
 )
-
 }
 
 export default Item
