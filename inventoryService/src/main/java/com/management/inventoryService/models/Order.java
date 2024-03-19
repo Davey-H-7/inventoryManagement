@@ -1,6 +1,7 @@
 package com.management.inventoryService.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +21,7 @@ public class Order {
     @Column(name ="priority")
     private Priority priority;
 
-
+    @JsonIgnoreProperties("order")
     @OneToMany(mappedBy = "order")
     private List<Item> items;
 
