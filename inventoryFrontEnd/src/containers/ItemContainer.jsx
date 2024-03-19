@@ -22,7 +22,7 @@ const ItemContainer = ({items, orders, getById}) => {
       fetch("/api/items/" + item.id, {
         method: "DELETE"
       })
-      .then(() => window.location ="/items")
+      .then( window.location ="/items")
     }
 
     const ItemDetailWrapper = () => {

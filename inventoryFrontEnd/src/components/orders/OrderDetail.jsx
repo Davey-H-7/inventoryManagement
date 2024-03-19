@@ -1,6 +1,6 @@
 
 
-const OrderDetail = ({order}) => {
+const OrderDetail = ({order, handleDelete}) => {
 
     const detailItems = order.items.map((item) => {
       return <li key = {item.id}> {item.model} {item.status}</li>
@@ -16,6 +16,7 @@ const OrderDetail = ({order}) => {
             <ul>
                 {detailItems}
             </ul>
+            <button onClick = {() => handleDelete(order)}>Delete order</button>
         </div>
         
     )

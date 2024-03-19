@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.List;
 
+import static jakarta.persistence.CascadeType.ALL;
+
 @Entity
 @Table(name ="orders")
 public class Order {
@@ -22,7 +24,7 @@ public class Order {
     private Priority priority;
 
     @JsonIgnoreProperties("order")
-    @OneToMany(mappedBy = "order")
+    @OneToMany(cascade = ALL, mappedBy = "order")
     private List<Item> items;
 
     @Id
