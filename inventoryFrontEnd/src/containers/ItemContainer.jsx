@@ -10,7 +10,6 @@ import '../styling/ItemContainer.css'
 const ItemContainer = ({items, orders, getById}) => {
 
     const handlePost = (item) =>{
-        console.log("handlePost triggered");
         fetch("/api/items", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -19,10 +18,17 @@ const ItemContainer = ({items, orders, getById}) => {
         .then(() => window.location ='/items')
     }
 
+    const handleDelete = (item) => {
+      fetch("/api/items/" + item.id, {
+        method: "DELETE"
+      })
+      .then( window.location ="/items")
+    }
+
     const ItemDetailWrapper = () => {
      const {id} = useParams();
      const foundItem = getById(id,items)
-     return <ItemDetail item = {foundItem}/>
+     return <ItemDetail item = {foundItem} handleDelete={handleDelete}/>
     }
 
 return(
