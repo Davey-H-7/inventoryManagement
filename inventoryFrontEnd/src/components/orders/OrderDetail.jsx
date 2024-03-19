@@ -12,6 +12,7 @@ const OrderDetail = ({order}) => {
             <h1>Order Number: {order.id}</h1>
             <h2>Client: {order.client}</h2>
             <h3>Due on: {order.dueDate}</h3>
+            <h3> Items in order:</h3>
             <ul>
                 {detailItems}
             </ul>
