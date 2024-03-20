@@ -22,13 +22,16 @@ const [stateOrder, setStateOrder] = useState(
     }
 
 return (
-    <div className="orderForm">
-        <form onSubmit ={handleSubmit}>
+    <div className="newOrder">
+        <h1>New Order Details</h1>
+        <form className="newOrderForm" onSubmit ={handleSubmit}>
             <input type = "text" placeholder = "Name of Client" name = "client" onChange={handleChange} value = {stateOrder.client}/>
+            <h3> To be shipped by: </h3>
             <input type = "date" name = "dueDate" onChange={handleChange} value = {stateOrder.dueDate}/>
             <button type = "submit"> Submit </button>
+            <button onClick = {() => window.location ='/orders'} >Cancel</button>
         </form>
-        <button onClick = {() => window.location ='/orders'} >Cancel</button>
+        
     </div>
 )
 }

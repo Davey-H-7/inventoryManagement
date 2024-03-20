@@ -26,9 +26,25 @@ ul {
     color: #213547;
 }
 
-.detail ul{
-    list-style: circle;
-    display:inline-block
+.detailItemList{
+    list-style:square;
+    display:inline-block;
+    border: 1px double white;
+    padding: 0 10% 5%;
+    margin-bottom: 5%;
+}
+
+.newOrderForm{
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.newOrderForm input{
+    padding: 5%;
+    border-radius: 8px;
+    margin-bottom: 5%;
 }
 
 
