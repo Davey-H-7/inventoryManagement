@@ -34,6 +34,19 @@ ul {
     margin-bottom: 5%;
 }
 
+.newOrderForm{
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.newOrderForm input{
+    padding: 5%;
+    border-radius: 8px;
+    margin-bottom: 5%;
+}
+
 
 
 
