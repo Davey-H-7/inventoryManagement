@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 const Order = ({order}) => {
-    // const dueDate = convertDate(order.dueDate)
+    const dueDate = convertDate(order.dueDate)
     
     const orderUrl = "/orders/" + order.id
     return (
@@ -9,7 +9,7 @@ const Order = ({order}) => {
             <p>Order No: {order.id}</p>
             <p>Client: {order.client} </p>
             <p>Priority: {order.priority}</p>
-            <p>Due on: {order.dueDate}</p>
+            <p>Due on: {dueDate}</p>
         </Link>
     )
 
