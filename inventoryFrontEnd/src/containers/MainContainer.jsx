@@ -3,6 +3,7 @@ import Request from '../helpers/request';
 import { Routes, Route } from 'react-router-dom';
 import OrderContainer from './OrderContainer';
 import ItemContainer from './ItemContainer';
+import LandingContainer from './LandingContainer';
 
 const MainContainer = () => {
     const request = new Request
@@ -33,6 +34,7 @@ const MainContainer = () => {
     return(
         <div className='mainContainer'>
           <Routes>
+            <Route path ="/" element ={<LandingContainer/>}/>
             <Route path ="/orders/*" element = {<OrderContainer orders = {orders} getById = {getById}/>} />
             <Route path ="/items/*" element = {<ItemContainer items = {items} orders ={orders} getById = {getById}/>} />
           </Routes>
