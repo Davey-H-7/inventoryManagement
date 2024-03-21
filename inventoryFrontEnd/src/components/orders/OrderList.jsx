@@ -21,6 +21,7 @@ const OrderList = ({orders}) => {
     return (
         <>
         <h1> All Orders </h1>
+        <button onClick = {()=> window.location="/"}>Return to Home</button>
         <button onClick = {onAdd}>Add New Order</button>
         <ul>
         {orderNodes}

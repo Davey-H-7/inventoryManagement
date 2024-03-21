@@ -42,20 +42,24 @@ const ItemForm = ({handlePost, orders}) => {
         }
     
     return (
-        <div className="itemForm">
+        <div className="newItemForm">
+            <h1>New Item Details</h1>
             <form onSubmit ={handleSubmit}>
                 <input type = "text" placeholder = "Model Name/Number" name = "model" onChange={handleChange} value = {stateItem.model}/>
+                <br/>
+                <label>Quantity required: </label>
                 <input type = "number" placeholder = "0" name = "quantity" onChange={handleChange} value = {stateItem.quantity}/>
                 <input type = "text" placeholder = "Item Description" name = "description" onChange={handleChange} value = {stateItem.description}/>
-
+                <br/>
                 <select name = "order" onChange={handleOrder} defaultValue="select-order">
-                    <option disabled value ="select-order">Select an Order</option>
+                    <option disabled value ="select-order">Assign to order</option>
                     {orderOptions}
                 </select>
+                <br/>
                 {stateItem.order? <button type = "submit" > Submit </button>: <button disabled type = "submit" > Submit </button> }
-                    
+                <button onClick = {() => window.location ='/items'} >Cancel</button>
             </form>
-            <button onClick = {() => window.location ='/items'} >Cancel</button>
+            
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 
 const Order = ({order}) => {
+    
     const dueDate = convertDate(order.dueDate)
     
     const orderUrl = "/orders/" + order.id
@@ -16,9 +17,14 @@ const Order = ({order}) => {
 }
 
 const convertDate = (javaDate) => {
-    let dateArray = javaDate.split("T")
-    let newDate = dateArray[0]
-    return newDate
+    if(javaDate){
+        let dateArray = javaDate.split("T")
+        let newDate = dateArray[0]
+        return newDate
+    }
+    else{
+        return null
+    }
 }
 
 export default Order
