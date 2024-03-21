@@ -22,11 +22,13 @@ const OrderContainer = ({orders, getById}) => {
     const OrderDetailWrapper = () => {
         const {id}= useParams();
         const foundOrder = getById(id, orders);
-        return <OrderDetail order = {foundOrder} handleDelete ={handleDelete}/>
+        if(foundOrder){
+            return <OrderDetail order = {foundOrder} handleDelete ={handleDelete}/>
+        }
+        else{window.location ="/orders"}
     }
 
     const handleDelete = (order) => {
-        fetch("api/items")
         fetch("/api/orders/" + order.id, {
           method: "DELETE"
         })
