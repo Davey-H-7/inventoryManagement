@@ -19,6 +19,7 @@ const OrderDetail = ({order, handleDelete}) => {
                 {detailItems}
             </ul>
             <form>
+            <button onClick = {()=> window.location="/orders"}>Return to Orders</button>
                 <button onClick = {() => handleDelete(order)}>Delete order</button>
             </form>
         </div>
