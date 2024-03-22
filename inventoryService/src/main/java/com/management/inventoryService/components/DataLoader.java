@@ -10,7 +10,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 
 @Profile("!test")
@@ -27,27 +27,43 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args){
-        Date dueDate1 = new Date(124, 6, 3);
-        Date dueDate2 = new Date(124, 7, 12);
-        Date dueDate3 = new Date(124, 9, 26);
+        LocalDate dueDate1 = LocalDate.of(2024, 6, 3);
+        LocalDate dueDate2 = LocalDate.of(2024, 7, 12);
+        LocalDate dueDate3 = LocalDate.of(2024, 9, 26);
+        LocalDate dueDate4 = LocalDate.of(2025, 1, 8);
+        LocalDate dueDate5 = LocalDate.of(2024, 11, 9);
         Order order1 = new Order("Building Boys", dueDate1);
         orderRepository.save(order1);
-        Order order2 = new Order("Car Cannibals", dueDate2);
+        Order order2 = new Order("Carz Carz Carz", dueDate2);
         orderRepository.save(order2);
-        Order order3 = new Order("Factory Friends", dueDate3);
+        Order order3 = new Order("Factory Fitters Ltd", dueDate3);
         orderRepository.save(order3);
+        Order order4 = new Order("Your best Client <3", dueDate4);
+        orderRepository.save(order4);
+        Order order5 = new Order("eFix", dueDate5);
+        orderRepository.save(order5);
 
 
-        itemRepository.save(new Item("Pipe", 100, "Steel pipe for industrial use",order1));
-        itemRepository.save(new Item("Wheel", 50, "Wheel component for automobiles", order2));
-        itemRepository.save(new Item("Fitting", 200, "Pipe fitting for plumbing applications", order1));
-        itemRepository.save(new Item("Gearbox", 20, "Transmission component for machinery", order2));
-        itemRepository.save(new Item("Valve", 150, "Control valve for fluid regulation", order3));
-        itemRepository.save(new Item("Bearing", 80, "Mechanical bearing for rotating machinery", order3));
-        itemRepository.save(new Item("Conduit", 120, "Electrical conduit for wire protection", order1));
-        itemRepository.save(new Item("Gasket", 300, "Sealing gasket for leak-proof connections", order2));
-        itemRepository.save(new Item("Bracket", 70, "Support bracket for structural reinforcement", order1));
-        itemRepository.save(new Item("Hose", 180, "Flexible hose for fluid transfer", order2));
+        itemRepository.save(new Item("P001", 100, "Steel pipe for industrial use",order1));
+        itemRepository.save(new Item("W001", 50, "Wheel component for automobiles", order2));
+        itemRepository.save(new Item("F001", 200, "Pipe fitting for plumbing applications", order1));
+        itemRepository.save(new Item("GB001", 20, "Transmission component for machinery", order2));
+        itemRepository.save(new Item("V001", 150, "Control valve for fluid regulation", order3));
+        itemRepository.save(new Item("B001", 80, "Mechanical bearing for rotating machinery", order3));
+        itemRepository.save(new Item("C001", 120, "Electrical conduit for wire protection", order1));
+        itemRepository.save(new Item("GA001", 300, "Sealing gasket for leak-proof connections", order2));
+        itemRepository.save(new Item("B001", 70, "Support bracket for structural reinforcement", order1));
+        itemRepository.save(new Item("H001", 180, "Flexible hose for fluid transfer", order3));
+        itemRepository.save(new Item("P001", 600, "Steel pipe for industrial use",order5));
+        itemRepository.save(new Item("W002", 500, "Wheel component for automobiles", order2));
+        itemRepository.save(new Item("F002", 20, "Pipe fitting for plumbing applications", order4));
+        itemRepository.save(new Item("GB001", 45, "Transmission component for machinery", order4));
+        itemRepository.save(new Item("V002", 150, "Control valve for fluid regulation", order4));
+        itemRepository.save(new Item("B001", 80, "Mechanical bearing for rotating machinery", order3));
+        itemRepository.save(new Item("C001", 120, "Electrical conduit for wire protection", order1));
+        itemRepository.save(new Item("GA002", 300, "Sealing gasket for leak-proof connections", order5));
+        itemRepository.save(new Item("B001", 70, "Support bracket for structural reinforcement", order1));
+        itemRepository.save(new Item("H002", 180, "Flexible hose for fluid transfer", order3));
 
 
     }

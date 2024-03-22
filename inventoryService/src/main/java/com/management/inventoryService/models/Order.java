@@ -1,11 +1,9 @@
 package com.management.inventoryService.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import org.springframework.stereotype.Component;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import static jakarta.persistence.CascadeType.ALL;
@@ -18,7 +16,7 @@ public class Order {
     private String client;
 
     @Column(name ="dueDate")
-    private Date dueDate;
+    private LocalDate dueDate;
 
     @Column(name ="priority")
     private Priority priority;
@@ -31,7 +29,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Order(String client, Date dueDate) {
+    public Order(String client, LocalDate dueDate) {
         this.client = client;
         this.dueDate = dueDate;
         this.priority = Priority.Low;
@@ -66,11 +64,11 @@ public class Order {
         this.id = id;
     }
 
-    public Date getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 
