@@ -2,6 +2,7 @@ package com.management.inventoryService.components;
 
 import com.management.inventoryService.models.Item;
 import com.management.inventoryService.models.Order;
+import com.management.inventoryService.models.Status;
 import com.management.inventoryService.repositories.ItemRepository;
 import com.management.inventoryService.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,17 +46,19 @@ public class DataLoader implements ApplicationRunner {
 
 
         itemRepository.save(new Item("P001", 100, "Steel pipe for industrial use",order1));
-        itemRepository.save(new Item("W001", 50, "Wheel component for automobiles", order2));
+        Item item2 =new Item("W001", 50, "Wheel component for automobiles", order2);
+        item2.setStatus(Status.COMPLETE);
+        itemRepository.save(item2);
         itemRepository.save(new Item("F001", 200, "Pipe fitting for plumbing applications", order1));
-        itemRepository.save(new Item("GB001", 20, "Transmission component for machinery", order2));
+        itemRepository.save(new Item("GB001", 20, "Transmission component for machinery", order3));
         itemRepository.save(new Item("V001", 150, "Control valve for fluid regulation", order3));
         itemRepository.save(new Item("B001", 80, "Mechanical bearing for rotating machinery", order3));
         itemRepository.save(new Item("C001", 120, "Electrical conduit for wire protection", order1));
-        itemRepository.save(new Item("GA001", 300, "Sealing gasket for leak-proof connections", order2));
+        itemRepository.save(new Item("GA001", 300, "Sealing gasket for leak-proof connections", order4));
         itemRepository.save(new Item("B001", 70, "Support bracket for structural reinforcement", order1));
         itemRepository.save(new Item("H001", 180, "Flexible hose for fluid transfer", order3));
         itemRepository.save(new Item("P001", 600, "Steel pipe for industrial use",order5));
-        itemRepository.save(new Item("W002", 500, "Wheel component for automobiles", order2));
+        itemRepository.save(new Item("W002", 500, "Wheel component for automobiles", order5));
         itemRepository.save(new Item("F002", 20, "Pipe fitting for plumbing applications", order4));
         itemRepository.save(new Item("GB001", 45, "Transmission component for machinery", order4));
         itemRepository.save(new Item("V002", 150, "Control valve for fluid regulation", order4));
