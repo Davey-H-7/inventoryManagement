@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import OrderContainer from './OrderContainer';
 import ItemContainer from './ItemContainer';
 import LandingContainer from './LandingContainer';
-import PartsContainer from './PartsContainer';
+import PartsContainer from './PartContainer';
 
 const MainContainer = () => {
     const request = new Request

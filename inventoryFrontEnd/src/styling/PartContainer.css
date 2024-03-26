@@ -1,4 +1,4 @@
-.itemContainer{
+.partContainer{
     max-width: 100%;
 
 }
@@ -14,7 +14,7 @@ ul {
 
 }
 
-.item {
+.part {
     border-width: 2px;
     border-style: double;
     width: 30%;
@@ -22,25 +22,25 @@ ul {
     
 }
 
-.item:hover{
+.part:hover{
     color: #213547;
 }
 
-.newItemForm{
+.newPartForm{
     margin:auto;
     display:flex;
     flex-direction: column;
     width: 100%;
 }
 
-.newItemForm input{
+.newPartForm input{
     padding: 5%;
     border-radius: 8px;
     margin-bottom: 5%;
     width: 60%;
 }
 
-.newItemForm select{
+.newPartForm select{
     padding: 5%;
     border-radius: 8px;
     margin-bottom: 5%;

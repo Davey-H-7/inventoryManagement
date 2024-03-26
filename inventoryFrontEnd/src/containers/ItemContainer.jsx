@@ -2,10 +2,6 @@ import ItemForm from "../components/items/ItemForm.jsx"
 import ItemList from "../components/items/ItemList.jsx"
 import ItemDetail from "../components/items/ItemDetail.jsx"
 import { Routes, Route, useParams } from "react-router-dom"
-import '../styling/ItemContainer.css'
-
-
-
 
 const ItemContainer = ({items, orders, getById}) => {
 
