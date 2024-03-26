@@ -10,14 +10,13 @@ import java.io.Serializable;
 @Table(name = "items")
 public class Item implements Serializable {
 
-    @Column(name="model")
-    private String model;
+    @JsonIgnoreProperties("items")
+    @ManyToOne
+    @JoinColumn(name = "part_id")
+    private Part part;
 
     @Column(name="quantity")
     private int quantity;
-
-    @Column(name = "description")
-    private String description;
 
     @Column(name = "status")
     private Status status;
@@ -27,17 +26,15 @@ public class Item implements Serializable {
     @JoinColumn(name = "order_id")
     private Order order;
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
-    public Item(String model, int quantity, String description, Order order) {
-        this.model = model;
+
+    public Item(Part part, int quantity, Order order) {
+        this.part = part;
         this.quantity = quantity;
-        this.description = description;
         this.status = Status.NEW;
         this.order = order;
     }
@@ -46,12 +43,12 @@ public class Item implements Serializable {
         this.status = Status.NEW;
     }
 
-    public String getModel() {
-        return model;
+    public Part getPart() {
+        return part;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setPart(Part part) {
+        this.part = part;
     }
 
     public int getQuantity() {
@@ -60,14 +57,6 @@ public class Item implements Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public Status getStatus() {
