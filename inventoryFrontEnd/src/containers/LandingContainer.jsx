@@ -11,7 +11,7 @@ const LandingContainer = () => {
             <h4> Click below to see your orders or items</h4>
             
             <button onClick={() => window.location ="/orders"}>View My Orders</button>
-            <button onClick={() => window.location ="/items"}>View My Items</button>
+            <button onClick={() => window.location ="/parts"}>View My Parts</button>
             
         </div>
     );
