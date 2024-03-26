@@ -7,7 +7,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import static jakarta.persistence.CascadeType.ALL;
-
+@Entity
+@Table(name ="parts")
 public class Part implements Serializable {
 
     @Column(name="model")
