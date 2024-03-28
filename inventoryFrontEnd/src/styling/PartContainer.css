@@ -11,15 +11,13 @@ ul {
     justify-content: center;
     margin:auto;
     max-width: 100%;
-
 }
 
-.part {
+.listItem {
     border-width: 2px;
     border-style: double;
     width: 30%;
     color: white;
-    
 }
 
 .part:hover{
@@ -46,6 +44,29 @@ ul {
     margin-bottom: 5%;
     width: 72%;
 }
+
+.partDetail{
+    margin:auto;
+    justify-content: center;
+}
+
+.detailOrderList{
+    list-style: none;
+    display:flex;
+    flex-direction: column;
+    margin:0;
+    width: 100%;
+    padding:0;
+}
+
+.detailOrderList .listItem {
+    border-width: 2px;
+    border-style: double;
+    width: 100%;
+    color: white;
+}
+
+.
 
 
 

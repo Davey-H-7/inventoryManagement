@@ -5,7 +5,7 @@ const Part = ({part}) => {
     const partURL = "/parts/" + part.id
   
     return(
-        <Link className="part" to ={partURL}>
+        <Link className="listItem" to ={partURL}>
             Model: {part.model} <br/>
         </Link>
     )

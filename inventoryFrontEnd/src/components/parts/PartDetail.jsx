@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom"
+
 const PartDetail = ({part, items, handleDelete}) => {
     let totalQuantity = 0
   
     const partItems = items.filter((partItem) => partItem.part.id == part.id)
     
     const itemNodes= partItems.map((item) => {
-      return <li key ={item.id}>Order No:{item.order.id} for {item.order.client} {item.quantity}</li>
+      return <Link to = {"/orders/" +item.order.id} className="listItem" key ={item.id}>{item.order.client} Order No:{item.order.id} Amount: {item.quantity}</Link>
     })
 
     const calculateTotal = () => {
@@ -21,7 +23,7 @@ const PartDetail = ({part, items, handleDelete}) => {
         <h2>{part.description}</h2>
         <h3> Total quantity across orders: {totalQuantity}</h3>
         <h3>Included in orders:</h3>
-        <ul>
+        <ul className="detailOrderList">
             {itemNodes}
         </ul>
         <button onClick = {()=> window.location="/parts"}>Return to Parts</button>
