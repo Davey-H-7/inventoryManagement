@@ -25,14 +25,15 @@ const OrderContainer = ({orders, getById, parts}) => {
         if(foundOrder){
             return <OrderDetail order = {foundOrder} handleDelete ={handleDelete} parts = {parts}/>
         }
-        else{window.location ="/orders"}
+        // else{window.location ="/orders"}
     }
 
     const handleDelete = (order) => {
         fetch("/api/orders/" + order.id, {
           method: "DELETE"
-        })
-        .then(window.location ="/orders")
+        }
+        )
+        window.location ="/orders"
       }
 
 return(

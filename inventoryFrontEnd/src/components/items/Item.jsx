@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom"
+
 
 const Item = ({item}) => {
-
-    const itemURL = "/items/" + item.id
   
 return(
-    <Link className="item" to ={itemURL}>
-        Model: {item.model} <br/>
-        Status: {item.status}
-    </Link>
+    <li className="item">
+        <p>{item.part.model} </p>
+        <p>{item.quantity}</p>
+        <p>{item.status} </p>
+    </li>
 )
 }
 

@@ -1,17 +1,18 @@
 import {useState} from 'react';
 
-const ItemForm = ({order, parts}) => {
+const ItemForm = ({order, parts, handleFormDisplay}) => {
 
-    const orderURL  = `/orders/{order.id}`;
+
 
     const handleItemPost = (item) =>{
+        event.preventDefault()
         console.log("handlePost triggered");
         fetch("/api/items", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(item)
         })
-        .then(() => window.location = orderURL)
+        .then(window.location ='/orders/' + order.id)
     }
   
     const [stateItem, setStateItem] = useState(
@@ -30,11 +31,10 @@ const ItemForm = ({order, parts}) => {
         }
     
         const handleSubmit = (event) => {
-            console.log("submit triggered");
             event.preventDefault();
-            if(stateItem.part != null){
-                handleItemPost(stateItem);
-            }
+            handleItemPost(stateItem);
+
+            
         }
 
         const partOptions = parts.map((part, index) => {
@@ -68,7 +68,7 @@ const ItemForm = ({order, parts}) => {
                 <br/>
 
                 {stateItem.part? <button type = "submit" > Submit </button>: <button disabled type = "submit" > Submit </button> }
-                <button onClick = {() => window.location ='/items'} >Cancel</button>
+                <button onClick = {() => handleFormDisplay()} >Cancel</button>
             </form>
             
         </div>
