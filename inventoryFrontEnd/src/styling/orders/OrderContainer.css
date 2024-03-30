@@ -41,9 +41,31 @@ ul {
     gap: 5%;
     border-top: 2px double white;
     width:100%;
-
 }
 
+.newItemForm {
+    display: flex;
+    flex-wrap: wrap;
+    padding:5%;
+    gap:2%;
+    justify-content: center;
+    justify-items: baseline;
+}
+
+.newItemForm input {
+    padding:5%;
+    border-radius: 10px;
+}
+
+.newItemForm select {
+    padding:2%;
+    border-radius: 10px;
+}
+
+.newItemForm .buttons {
+    padding:0;
+    display:flex;
+}
 
 .newOrderForm{
     margin:auto;

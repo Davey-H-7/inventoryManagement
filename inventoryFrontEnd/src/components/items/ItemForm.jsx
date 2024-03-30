@@ -55,23 +55,23 @@ const ItemForm = ({order, parts, handleFormDisplay}) => {
         }
     
     return (
-        <div className="newItemForm">
-            <h1>New Item Details</h1>
-            <form onSubmit ={handleSubmit}>
-                 <select name = "part" onChange={handlePart} defaultValue="select-part">
-                    <option disabled value ="select-part">Select a part</option>
-                    {partOptions}
-                </select>
-                <br/>
-                <label>Quantity required: </label>
-                <input type = "number" placeholder = "0" name = "quantity" onChange={handleChange} value = {stateItem.quantity}/>
-                <br/>
 
-                {stateItem.part? <button type = "submit" > Submit </button>: <button disabled type = "submit" > Submit </button> }
-                <button onClick = {() => handleFormDisplay()} >Cancel</button>
-            </form>
+        <form className="newItemForm" onSubmit ={handleSubmit}>
+            <select name = "part" onChange={handlePart} defaultValue="select-part">
+                <option disabled value ="select-part">Select a part</option>
+                    {partOptions}
+            </select>
+            <div>
+                <label name = "quantity">Quantity required: </label>
+                <input type = "number" placeholder = "0" name = "quantity" onChange={handleChange} value = {stateItem.quantity}/>
+           </div>
+            <div className='buttons'>
+            {stateItem.part? <button type = "submit" > Submit </button>: <button disabled type = "submit" > Submit </button> }
+            <button onClick = {() => handleFormDisplay()} >Cancel</button>
+            </div>
+        </form>
             
-        </div>
+ 
     )
 }
     
