@@ -1,13 +1,25 @@
 import {useState} from 'react';
 
-const ItemForm = ({handlePost, orders}) => {
+const ItemForm = ({handlePost, order, parts}) => {
+
+    const orderURL  = `/orders/{order.id}`;
+
+    const handleItemPost = (item) =>{
+        console.log("handlePost triggered");
+        fetch("/api/items", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(item)
+        })
+        .then(() => window.location = orderURL)
+    }
   
     const [stateItem, setStateItem] = useState(
         {
-            model: "",
+            part:null,
             quantity: 0,
-            description: "",
-            order: null
+            status:"NEW",
+            order: order
         })
     
         const handleChange = function(event) {
@@ -18,26 +30,27 @@ const ItemForm = ({handlePost, orders}) => {
         }
     
         const handleSubmit = (event) => {
+            console.log("submit triggered");
             event.preventDefault();
-            if(stateItem.order != null){
-                handlePost(stateItem);
+            if(stateItem.part != null){
+                handleItemPost(stateItem);
             }
         }
 
-        const orderOptions = orders.map((order, index) => {
-          return <option key = {index} value ={index}>{order.id} {order.client}</option>
+        const partOptions = parts.map((part, index) => {
+          return <option key = {index} value ={index}>{part.model}</option>
         })
 
-        const handleOrder =function(event){
+        const handlePart =function(event){
           const index = parseInt(event.target.value)
-          const selectedOrder = orders[index]
-          const newOrder = {
-            "id":selectedOrder.id,
-            "client":selectedOrder.client,
-            "dueDate":selectedOrder.dueDate
+          const selectedPart = parts[index]
+          const newPart = {
+            "id":selectedPart.id,
+            "model":selectedPart.model,
+            "dueDate":selectedPart.dueDate
           }
           let copiedItem = {...stateItem}
-          copiedItem['order'] = newOrder
+          copiedItem['part'] = newPart
           setStateItem(copiedItem)
         }
     
@@ -45,18 +58,16 @@ const ItemForm = ({handlePost, orders}) => {
         <div className="newItemForm">
             <h1>New Item Details</h1>
             <form onSubmit ={handleSubmit}>
-                <input type = "text" placeholder = "Model Name/Number" name = "model" onChange={handleChange} value = {stateItem.model}/>
+                 <select name = "part" onChange={handlePart} defaultValue="select-part">
+                    <option disabled value ="select-part">Select a part</option>
+                    {partOptions}
+                </select>
                 <br/>
                 <label>Quantity required: </label>
                 <input type = "number" placeholder = "0" name = "quantity" onChange={handleChange} value = {stateItem.quantity}/>
-                <input type = "text" placeholder = "Item Description" name = "description" onChange={handleChange} value = {stateItem.description}/>
                 <br/>
-                <select name = "order" onChange={handleOrder} defaultValue="select-order">
-                    <option disabled value ="select-order">Assign to order</option>
-                    {orderOptions}
-                </select>
-                <br/>
-                {stateItem.order? <button type = "submit" > Submit </button>: <button disabled type = "submit" > Submit </button> }
+
+                {stateItem.part? <button type = "submit" > Submit </button>: <button disabled type = "submit" > Submit </button> }
                 <button onClick = {() => window.location ='/items'} >Cancel</button>
             </form>
             

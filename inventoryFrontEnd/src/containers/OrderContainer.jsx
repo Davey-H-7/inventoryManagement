@@ -1,13 +1,13 @@
 import OrderList from "../components/orders/OrderList"
 import OrderForm from "../components/orders/OrderForm"
 import OrderDetail from "../components/orders/OrderDetail"
-import '../styling/OrderContainer.css'
+import '../styling//orders/OrderContainer.css'
 import {Routes, Route, useParams} from "react-router-dom"
 
 
 
 
-const OrderContainer = ({orders, getById}) => {
+const OrderContainer = ({orders, getById, parts}) => {
 
     const handlePost = (order) =>{
         console.log("handlePost triggered");
@@ -23,7 +23,7 @@ const OrderContainer = ({orders, getById}) => {
         const {id}= useParams();
         const foundOrder = getById(id, orders);
         if(foundOrder){
-            return <OrderDetail order = {foundOrder} handleDelete ={handleDelete}/>
+            return <OrderDetail order = {foundOrder} handleDelete ={handleDelete} parts = {parts}/>
         }
         else{window.location ="/orders"}
     }

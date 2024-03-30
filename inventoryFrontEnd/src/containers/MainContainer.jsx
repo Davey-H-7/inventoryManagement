@@ -39,7 +39,7 @@ const MainContainer = () => {
         <div className='mainContainer'>
           <Routes>
             <Route path ="/" element ={<LandingContainer/>}/>
-            <Route path ="/orders/*" element = {<OrderContainer orders = {orders} getById = {getById}/>} />
+            <Route path ="/orders/*" element = {<OrderContainer orders = {orders} getById = {getById} parts ={parts}/>} />
             <Route path ="/items/*" element = {<ItemContainer items = {items} orders ={orders} getById = {getById}/>} />
             <Route path ="/parts/*" element = {<PartContainer parts = {parts} items = {items} getById = {getById}/>}/>
           </Routes>

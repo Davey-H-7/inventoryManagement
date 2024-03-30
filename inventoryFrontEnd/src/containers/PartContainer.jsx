@@ -1,7 +1,7 @@
 import { Routes, Route, useParams } from "react-router-dom";
 import PartList from "../components/parts/PartList";
 import PartDetail from "../components/parts/PartDetail";
-import '../styling/PartContainer.css'
+import '../styling/parts/PartContainer.css'
 
 const PartContainer = ({parts, items, getById}) => {
 

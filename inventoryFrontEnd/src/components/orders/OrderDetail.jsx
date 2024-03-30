@@ -1,9 +1,10 @@
+import ItemForm from "../items/ItemForm";
 
 
-const OrderDetail = ({order, handleDelete}) => {
+const OrderDetail = ({order, handleDelete, parts, handlePost}) => {
 
     const detailItems = order.items.map((item) => {
-      return <li key = {item.id}> {item.model} {item.status}</li>
+      return <li key = {item.id}> {item.part.model} {item.status}</li>
     })
 
     const orderCompletion = statusCheck(order.items);
@@ -22,9 +23,11 @@ const OrderDetail = ({order, handleDelete}) => {
                 {detailItems}
             </ul>
             <form>
-            <button onClick = {()=> window.location="/orders"}>Return to Orders</button>
+                <button onClick={() => console.log("button clicked")}>Add to Order</button>
+                <button onClick = {()=> window.location="/orders"}>Return to Orders</button>
                 <button onClick = {() => handleDelete(order)}>Delete order</button>
             </form>
+            <ItemForm order = {order} handlePost = {handlePost} parts = {parts}/>
         </div>
         
     )
@@ -35,8 +38,6 @@ const statusCheck = function(itemArray){
   
     const isOrderCompleted =itemArray.every((value) => value.status =="COMPLETE")
 
-    console.log(itemArray);
-    console.log(isOrderCompleted);
     return isOrderCompleted;
     };
 
