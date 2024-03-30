@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-const ItemForm = ({handlePost, order, parts}) => {
+const ItemForm = ({order, parts}) => {
 
     const orderURL  = `/orders/{order.id}`;
 

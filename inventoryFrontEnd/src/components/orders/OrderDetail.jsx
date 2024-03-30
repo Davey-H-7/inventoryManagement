@@ -1,7 +1,16 @@
+import { useState } from "react";
 import ItemForm from "../items/ItemForm";
 
 
-const OrderDetail = ({order, handleDelete, parts, handlePost}) => {
+const OrderDetail = ({order, handleDelete, parts}) => {
+
+   const [formDisplay, setFormDisplay] = useState(false);
+
+    const handleFormDisplay = () => {
+        event.preventDefault()
+        console.log(formDisplay);
+        setFormDisplay(!formDisplay);
+    }
 
     const detailItems = order.items.map((item) => {
       return <li key = {item.id}> {item.part.model} {item.status}</li>
@@ -23,11 +32,11 @@ const OrderDetail = ({order, handleDelete, parts, handlePost}) => {
                 {detailItems}
             </ul>
             <form>
-                <button onClick={() => console.log("button clicked")}>Add to Order</button>
+                <button onClick={() => handleFormDisplay()}>Add to Order</button>
                 <button onClick = {()=> window.location="/orders"}>Return to Orders</button>
                 <button onClick = {() => handleDelete(order)}>Delete order</button>
             </form>
-            <ItemForm order = {order} handlePost = {handlePost} parts = {parts}/>
+            {formDisplay?<ItemForm order = {order} parts = {parts}/>:<br/>}
         </div>
         
     )
