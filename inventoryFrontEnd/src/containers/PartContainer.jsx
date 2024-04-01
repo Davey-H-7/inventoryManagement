@@ -6,14 +6,14 @@ import '../styling/parts/PartContainer.css'
 
 const PartContainer = ({parts, items, getById}) => {
 
-  const handlePost = (order) =>{
+  const handlePost = (part) =>{
     console.log("handlePost triggered");
-    fetch("/api/orders", {
+    fetch("/api/parts", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(order)
+        body: JSON.stringify(part)
     })
-    .then(() => window.location ='/orders')
+    .then(() => window.location ='/parts')
 }
 
     const handleDelete = (part) => {
