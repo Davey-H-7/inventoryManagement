@@ -1,4 +1,4 @@
-.itemContainer{
+.partContainer{
     max-width: 100%;
 
 }
@@ -11,41 +11,62 @@ ul {
     justify-content: center;
     margin:auto;
     max-width: 100%;
-
 }
 
-.item {
+.listItem {
     border-width: 2px;
     border-style: double;
     width: 30%;
     color: white;
-    
 }
 
-.item:hover{
+.part:hover{
     color: #213547;
 }
 
-.newItemForm{
+.newPartForm{
     margin:auto;
     display:flex;
     flex-direction: column;
     width: 100%;
 }
 
-.newItemForm input{
+.newPartForm input{
     padding: 5%;
     border-radius: 8px;
     margin-bottom: 5%;
     width: 60%;
 }
 
-.newItemForm select{
+.newPartForm select{
     padding: 5%;
     border-radius: 8px;
     margin-bottom: 5%;
     width: 72%;
 }
+
+.partDetail{
+    margin:auto;
+    justify-content: center;
+}
+
+.detailOrderList{
+    list-style: none;
+    display:flex;
+    flex-direction: column;
+    margin:0;
+    width: 100%;
+    padding:0;
+}
+
+.detailOrderList .listItem {
+    border-width: 2px;
+    border-style: double;
+    width: 100%;
+    color: white;
+}
+
+.
 
 
 

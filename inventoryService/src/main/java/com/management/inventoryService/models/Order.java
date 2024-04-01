@@ -33,7 +33,6 @@ public class Order {
         this.client = client;
         this.dueDate = dueDate;
         this.priority = Priority.Low;
-
     }
 
     public Order() {

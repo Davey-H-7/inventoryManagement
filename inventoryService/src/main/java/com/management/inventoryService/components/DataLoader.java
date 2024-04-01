@@ -1,21 +1,24 @@
+
+
 package com.management.inventoryService.components;
 
 import com.management.inventoryService.models.Item;
 import com.management.inventoryService.models.Order;
-import com.management.inventoryService.models.Status;
+import com.management.inventoryService.models.Part;
 import com.management.inventoryService.repositories.ItemRepository;
 import com.management.inventoryService.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
+import com.management.inventoryService.repositories.PartRepository;
 import org.springframework.boot.ApplicationRunner;
+import java.time.LocalDate;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 
 
-@Profile("!test")
-@Component
+//@Profile("!test")
+//@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
@@ -24,10 +27,16 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     OrderRepository orderRepository;
 
+    @Autowired
+    PartRepository partRepository;
+
     public DataLoader() {
     }
 
     public void run(ApplicationArguments args){
+
+        // creating orders
+
         LocalDate dueDate1 = LocalDate.of(2024, 6, 3);
         LocalDate dueDate2 = LocalDate.of(2024, 7, 12);
         LocalDate dueDate3 = LocalDate.of(2024, 9, 26);
@@ -45,28 +54,74 @@ public class DataLoader implements ApplicationRunner {
         orderRepository.save(order5);
 
 
-        itemRepository.save(new Item("P001", 100, "Steel pipe for industrial use",order1));
-        Item item2 =new Item("W001", 50, "Wheel component for automobiles", order2);
-        item2.setStatus(Status.COMPLETE);
-        itemRepository.save(item2);
-        itemRepository.save(new Item("F001", 200, "Pipe fitting for plumbing applications", order1));
-        itemRepository.save(new Item("GB001", 20, "Transmission component for machinery", order3));
-        itemRepository.save(new Item("V001", 150, "Control valve for fluid regulation", order3));
-        itemRepository.save(new Item("B001", 80, "Mechanical bearing for rotating machinery", order3));
-        itemRepository.save(new Item("C001", 120, "Electrical conduit for wire protection", order1));
-        itemRepository.save(new Item("GA001", 300, "Sealing gasket for leak-proof connections", order4));
-        itemRepository.save(new Item("B001", 70, "Support bracket for structural reinforcement", order1));
-        itemRepository.save(new Item("H001", 180, "Flexible hose for fluid transfer", order3));
-        itemRepository.save(new Item("P001", 600, "Steel pipe for industrial use",order5));
-        itemRepository.save(new Item("W002", 500, "Wheel component for automobiles", order5));
-        itemRepository.save(new Item("F002", 20, "Pipe fitting for plumbing applications", order4));
-        itemRepository.save(new Item("GB001", 45, "Transmission component for machinery", order4));
-        itemRepository.save(new Item("V002", 150, "Control valve for fluid regulation", order4));
-        itemRepository.save(new Item("B001", 80, "Mechanical bearing for rotating machinery", order3));
-        itemRepository.save(new Item("C001", 120, "Electrical conduit for wire protection", order1));
-        itemRepository.save(new Item("GA002", 300, "Sealing gasket for leak-proof connections", order5));
-        itemRepository.save(new Item("B001", 70, "Support bracket for structural reinforcement", order1));
-        itemRepository.save(new Item("H002", 180, "Flexible hose for fluid transfer", order3));
+        // creating parts
+
+
+        Part part1 = new Part("F001", "Pipe fitting for plumbing applications");
+        partRepository.save(part1);
+
+        Part part2 = new Part("GB001", "Transmission component for machinery");
+        partRepository.save(part2);
+
+        Part part3 = new Part("V001", "Control valve for fluid regulation");
+        partRepository.save(part3);
+
+        Part part4 = new Part("B001", "Mechanical bearing for rotating machinery");
+        partRepository.save(part4);
+
+        Part part5 = new Part("C001", "Electrical conduit for wire protection");
+        partRepository.save(part5);
+
+        Part part6 = new Part("GA001", "Sealing gasket for leak-proof connections");
+        partRepository.save(part6);
+
+        Part part7 = new Part("H001", "Flexible hose for fluid transfer");
+        partRepository.save(part7);
+
+        Part part8 = new Part("P001", "Steel pipe for industrial use");
+        partRepository.save(part8);
+
+        Part part9 = new Part("W002", "Wheel component for automobiles");
+        partRepository.save(part9);
+
+        Part part10 = new Part("F002", "Pipe fitting for plumbing applications");
+        partRepository.save(part10);
+
+        Part part11 = new Part("GB001", "Transmission component for machinery");
+        partRepository.save(part11);
+
+        Part part12 = new Part("V002", "Control valve for fluid regulation");
+        partRepository.save(part12);
+
+        Part part13 = new Part("GA002", "Sealing gasket for leak-proof connections");
+        partRepository.save(part13);
+
+        Part part14 = new Part("H002", "Flexible hose for fluid transfer");
+        partRepository.save(part14);
+
+
+        //creating items
+
+        itemRepository.save(new Item(part3, 150, order2));
+        itemRepository.save(new Item(part8, 700, order5));
+        itemRepository.save(new Item(part5, 1200, order3));
+        itemRepository.save(new Item(part1, 450, order4));
+        itemRepository.save(new Item(part12, 800, order1));
+        itemRepository.save(new Item(part7, 300, order2));
+        itemRepository.save(new Item(part2, 1800, order4));
+        itemRepository.save(new Item(part4, 50, order2));
+        itemRepository.save(new Item(part9, 1000, order5));
+        itemRepository.save(new Item(part6, 900, order3));
+        itemRepository.save(new Item(part11, 600, order1));
+        itemRepository.save(new Item(part10, 700, order4));
+        itemRepository.save(new Item(part13, 250, order2));
+        itemRepository.save(new Item(part8, 300, order4));
+        itemRepository.save(new Item(part1, 100, order3));
+        itemRepository.save(new Item(part5, 1600, order1));
+        itemRepository.save(new Item(part4, 700, order5));
+        itemRepository.save(new Item(part2, 800, order5));
+        itemRepository.save(new Item(part3, 120, order2));
+        itemRepository.save(new Item(part7, 950, order4));
 
 
     }

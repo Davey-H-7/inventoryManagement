@@ -42,9 +42,7 @@ public class ItemController {
         Item updateItem = itemRepository.findById(id)
                 .orElseThrow();
 
-        updateItem.setModel(newItem.getModel());
         updateItem.setQuantity(newItem.getQuantity());
-        updateItem.setDescription(newItem.getDescription());
         itemRepository.save(updateItem);
 
         return new ResponseEntity<>(updateItem, HttpStatus.OK);

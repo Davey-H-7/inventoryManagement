@@ -1,9 +1,20 @@
+import { useState } from "react";
+import ItemForm from "../items/ItemForm";
+import Item from "../items/Item";
 
 
-const OrderDetail = ({order, handleDelete}) => {
+const OrderDetail = ({order, handleDelete, parts}) => {
+
+   const [formDisplay, setFormDisplay] = useState(false);
+
+    const handleFormDisplay = () => {
+        event.preventDefault()
+        console.log(formDisplay);
+        setFormDisplay(!formDisplay);
+    }
 
     const detailItems = order.items.map((item) => {
-      return <li key = {item.id}> {item.model} {item.status}</li>
+      return <Item key = {item.id} item ={item}/>
     })
 
     const orderCompletion = statusCheck(order.items);
@@ -17,14 +28,20 @@ const OrderDetail = ({order, handleDelete}) => {
                 <h3>Due on: {order.dueDate}</h3>
                 {orderCompletion? <h3>Order Ready to Ship</h3>: <h3>Order in Progress</h3>}
             </div>
-            <ul className="detailItemList">
-                <h3> Items in order:</h3>
-                {detailItems}
-            </ul>
-            <form>
-            <button onClick = {()=> window.location="/orders"}>Return to Orders</button>
+            <div className="detailItemList">
+                <ul>
+                    <li className="item">
+                    <p><b>Model</b></p><p><b>Quantity</b></p><p><b>Status</b></p>
+                    </li>
+                    {detailItems}
+                </ul>
+            </div>
+            <div>
+                <button onClick={() => handleFormDisplay()}>Add to Order</button>
+                <button onClick = {()=> window.location="/orders"}>Return to Orders</button>
                 <button onClick = {() => handleDelete(order)}>Delete order</button>
-            </form>
+            </div>
+            {formDisplay?<ItemForm order = {order} parts = {parts} handleFormDisplay={handleFormDisplay}/>:<br/>}
         </div>
         
     )
@@ -35,8 +52,6 @@ const statusCheck = function(itemArray){
   
     const isOrderCompleted =itemArray.every((value) => value.status =="COMPLETE")
 
-    console.log(itemArray);
-    console.log(isOrderCompleted);
     return isOrderCompleted;
     };
 
