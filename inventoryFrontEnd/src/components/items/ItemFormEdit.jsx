@@ -50,6 +50,12 @@ const ItemFormEdit = ({order, parts, currentItem}) => {
           copiedItem['part'] = newPart
           setStateItem(copiedItem)
         }
+
+        const handleStatus =function(event){
+            let copiedItem = {...stateItem}
+            copiedItem['status'] = event.target.value
+            setStateItem(copiedItem)
+          }
     
     return (
 
@@ -62,6 +68,15 @@ const ItemFormEdit = ({order, parts, currentItem}) => {
                 <label name = "quantity">Quantity required: </label>
                 <input type = "number" placeholder = {currentItem.quantity} name = "quantity" onChange={handleChange} value = {stateItem.quantity}/>
            </div>
+
+           <select name = "status" onChange={handleStatus} default value="select-status">
+                <option disabled value ="select-status">Select a status</option>
+                <option value ="NEW">New</option>
+                <option value ="MANUFACTURING">Manufacturing</option>
+                <option value ="QA">QA</option>
+                <option value ="COMPLETE">Complete</option>
+            </select>
+
             <div className='buttons'>
             <button type = "submit" > Submit </button>
             <button onClick = {() => window.location ='/orders/' + order.id } >Cancel</button>
