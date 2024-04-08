@@ -41,8 +41,9 @@ public class ItemController {
     public ResponseEntity updateItem(@PathVariable Long id, @RequestBody Item newItem){
         Item updateItem = itemRepository.findById(id)
                 .orElseThrow();
-
+        updateItem.setPart(newItem.getPart());
         updateItem.setQuantity(newItem.getQuantity());
+        updateItem.setStatus(newItem.getStatus());
         itemRepository.save(updateItem);
 
         return new ResponseEntity<>(updateItem, HttpStatus.OK);

@@ -1,6 +1,6 @@
 
 
-const Item = ({item, handleItemDelete}) => {
+const Item = ({item, handleItemDelete, getItem}) => {
   
 return(
     <li className="item">
@@ -9,7 +9,7 @@ return(
             <p>{item.quantity}</p>
             <p>{item.status} </p>
         </div>
-        <span className="symbol">&#9842;</span>
+        <span className="symbol" onClick= {()=>getItem(item)}>&#9842;</span>
         <span className="symbol" onClick={() =>handleItemDelete(item)}>&#10006;</span>
     </li>
 )
