@@ -1,21 +1,47 @@
 import { useState } from "react";
 import ItemForm from "../items/ItemForm";
 import Item from "../items/Item";
+import ItemFormEdit from "../items/ItemFormEdit";
 
 
 const OrderDetail = ({order, handleDelete, parts}) => {
 
-   const [formDisplay, setFormDisplay] = useState(false);
+    const [addFormDisplay, setAddFormDisplay] = useState(false);
+    const [foundItem, setFoundItem] = useState(false);
 
-    const handleFormDisplay = () => {
+   const getItem = (item) => {
+        console.log(item);
+       setFoundItem(item)
+   }
+
+    const handleAddFormDisplay = () => {
         event.preventDefault()
-        console.log(formDisplay);
-        setFormDisplay(!formDisplay);
+        console.log(addFormDisplay);
+        setAddFormDisplay(!addFormDisplay);
     }
 
+    const handleItemDelete = ((item) => {
+        fetch("/api/items/" + item.id, {
+          method: "DELETE"
+        }
+        )
+        window.location ="/orders/" + order.id
+        })
+
+
+    const ItemFormEditWrapper = () => {
+        console.log(foundItem)
+        if (foundItem){
+        return <ItemFormEdit order = {order} parts = {parts} currentItem = {foundItem}/>
+    }}
+
     const detailItems = order.items.map((item) => {
-      return <Item key = {item.id} item ={item}/>
+      return <Item key = {item.id} item ={item} handleItemDelete={handleItemDelete} getItem = {getItem}/>
     })
+
+
+ 
+
 
     const orderCompletion = statusCheck(order.items);
   
@@ -30,18 +56,19 @@ const OrderDetail = ({order, handleDelete, parts}) => {
             </div>
             <div className="detailItemList">
                 <ul>
-                    <li className="item">
+                    <li className="itemHeader">
                     <p><b>Model</b></p><p><b>Quantity</b></p><p><b>Status</b></p>
                     </li>
                     {detailItems}
                 </ul>
             </div>
             <div>
-                <button onClick={() => handleFormDisplay()}>Add to Order</button>
+                <button onClick={() => handleAddFormDisplay()}>Add to Order</button>
                 <button onClick = {()=> window.location="/orders"}>Return to Orders</button>
                 <button onClick = {() => handleDelete(order)}>Delete order</button>
             </div>
-            {formDisplay?<ItemForm order = {order} parts = {parts} handleFormDisplay={handleFormDisplay}/>:<br/>}
+            {addFormDisplay?<ItemForm order = {order} parts = {parts} handleAddFormDisplay={handleAddFormDisplay}/>:<br/>}
+            {foundItem?<ItemFormEditWrapper/>:<br/>}
         </div>
         
     )

@@ -1,14 +1,12 @@
 import {useState} from 'react';
 
-const ItemForm = ({order, parts, handleAddFormDisplay}) => {
+const ItemFormEdit = ({order, parts, currentItem}) => {
 
-
-
-    const handleItemPost = (item) =>{
+    const handleItemUpdate = (item) =>{
         event.preventDefault()
-        console.log("handlePost triggered");
-        fetch("/api/items", {
-            method: "POST",
+        console.log(item);
+        fetch("/api/items/" + item.id, {
+            method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(item)
         })
@@ -17,9 +15,10 @@ const ItemForm = ({order, parts, handleAddFormDisplay}) => {
   
     const [stateItem, setStateItem] = useState(
         {
-            part:null,
-            quantity: 0,
-            status:"NEW",
+            id:currentItem.id,
+            part:currentItem.part,
+            quantity: currentItem.quantity,
+            status:currentItem.status,
             order: order
         })
     
@@ -32,9 +31,7 @@ const ItemForm = ({order, parts, handleAddFormDisplay}) => {
     
         const handleSubmit = (event) => {
             event.preventDefault();
-            handleItemPost(stateItem);
-
-            
+            handleItemUpdate(stateItem);
         }
 
         const partOptions = parts.map((part, index) => {
@@ -53,21 +50,36 @@ const ItemForm = ({order, parts, handleAddFormDisplay}) => {
           copiedItem['part'] = newPart
           setStateItem(copiedItem)
         }
+
+        const handleStatus =function(event){
+            let copiedItem = {...stateItem}
+            copiedItem['status'] = event.target.value
+            setStateItem(copiedItem)
+          }
     
     return (
 
         <form className="newItemForm" onSubmit ={handleSubmit}>
-            <select name = "part" onChange={handlePart} defaultValue="select-part">
+            <select name = "part" onChange={handlePart} default value="select-part">
                 <option disabled value ="select-part">Select a part</option>
                     {partOptions}
             </select>
             <div>
                 <label name = "quantity">Quantity required: </label>
-                <input type = "number" placeholder = "0" name = "quantity" onChange={handleChange} value = {stateItem.quantity}/>
+                <input type = "number" placeholder = {currentItem.quantity} name = "quantity" onChange={handleChange} value = {stateItem.quantity}/>
            </div>
+
+           <select name = "status" onChange={handleStatus} default value="select-status">
+                <option disabled value ="select-status">Select a status</option>
+                <option value ="NEW">New</option>
+                <option value ="MANUFACTURING">Manufacturing</option>
+                <option value ="QA">QA</option>
+                <option value ="COMPLETE">Complete</option>
+            </select>
+
             <div className='buttons'>
-            {stateItem.part? <button type = "submit" > Submit </button>: <button disabled type = "submit" > Submit </button> }
-            <button onClick = {() => handleAddFormDisplay()} >Cancel</button>
+            <button type = "submit" > Submit </button>
+            <button onClick = {() => window.location ='/orders/' + order.id } >Cancel</button>
             </div>
         </form>
             
@@ -76,4 +88,4 @@ const ItemForm = ({order, parts, handleAddFormDisplay}) => {
 }
     
 
-export default ItemForm;
+export default ItemFormEdit;
