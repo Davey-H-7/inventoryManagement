@@ -13,9 +13,18 @@ const OrderDetail = ({order, handleDelete, parts}) => {
         setFormDisplay(!formDisplay);
     }
 
+    const handleItemDelete = ((item) => {
+        fetch("/api/items/" + item.id, {
+          method: "DELETE"
+        }
+        )
+        window.location ="/orders/" + order.id
+      })
+
     const detailItems = order.items.map((item) => {
-      return <Item key = {item.id} item ={item}/>
+      return <Item key = {item.id} item ={item} handleItemDelete={handleItemDelete}/>
     })
+
 
     const orderCompletion = statusCheck(order.items);
   

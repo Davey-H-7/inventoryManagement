@@ -1,6 +1,6 @@
 
 
-const Item = ({item}) => {
+const Item = ({item, handleItemDelete}) => {
   
 return(
     <li className="item">
@@ -10,9 +10,11 @@ return(
             <p>{item.status} </p>
         </div>
         <span className="symbol">&#9842;</span>
-        <span className="symbol">&#10006;</span>
+        <span className="symbol" onClick={() =>handleItemDelete(item)}>&#10006;</span>
     </li>
 )
+
+
 }
 
 export default Item
