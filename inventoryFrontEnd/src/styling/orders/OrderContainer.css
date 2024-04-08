@@ -29,10 +29,17 @@ ul {
 .detailItemList ul{
     list-style:square;
     display:flex;
-    width:60%;
+    width:80%;
     border: 1px double white;
     margin: auto;
     padding:0;
+}
+
+.itemHeader {
+    display:flex;
+    justify-content: space-around;
+    width:72%;
+    margin-right:28%;
 }
 
 .item {
@@ -41,6 +48,13 @@ ul {
     gap: 5%;
     border-top: 2px double white;
     width:100%;
+}
+
+.itemInfo {
+    display:flex;
+    justify-content: space-around;
+    gap: 5%;
+    width:80%;
 }
 
 .newItemForm {
@@ -79,6 +93,16 @@ ul {
     border-radius: 8px;
     margin-bottom: 5%;
 }
+
+.symbol {
+    font-size: 2em;
+    line-height: 1.1;
+    color: white;
+    margin:auto 0;
+    width:10%;
+}
+
+
 
 
 

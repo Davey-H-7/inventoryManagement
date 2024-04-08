@@ -30,7 +30,7 @@ const OrderDetail = ({order, handleDelete, parts}) => {
             </div>
             <div className="detailItemList">
                 <ul>
-                    <li className="item">
+                    <li className="itemHeader">
                     <p><b>Model</b></p><p><b>Quantity</b></p><p><b>Status</b></p>
                     </li>
                     {detailItems}
