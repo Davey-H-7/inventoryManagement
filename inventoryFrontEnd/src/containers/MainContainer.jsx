@@ -5,6 +5,8 @@ import OrderContainer from './OrderContainer';
 import LandingContainer from './LandingContainer';
 import PartContainer from './PartContainer';
 import NotFound from '../components/landing/NotFound';
+import Header from '../components/landing/Header';
+import "../styling/main/MainContainer.css";
 
 const MainContainer = () => {
     const request = new Request
@@ -37,6 +39,7 @@ const MainContainer = () => {
   }
     return(
         <div className='mainContainer'>
+          <Header/>
           <Routes>
             <Route path ="/" element ={<LandingContainer/>}/>
             <Route path ="/orders/*" element = {<OrderContainer orders = {orders} getById = {getById} parts ={parts}/>} />

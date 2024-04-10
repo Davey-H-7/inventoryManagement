@@ -1,0 +1,11 @@
+.header {
+    background-color:#FFECBD;
+    width: 100%;
+}
+
+.header img{
+    display: flex;
+    justify-content: left;
+    max-height: 8vh;
+    margin-left: 2%;
+}
