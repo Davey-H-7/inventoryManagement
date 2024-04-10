@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import OrderContainer from './OrderContainer';
 import LandingContainer from './LandingContainer';
 import PartContainer from './PartContainer';
+import NotFound from '../components/landing/NotFound';
 
 const MainContainer = () => {
     const request = new Request
@@ -40,6 +41,7 @@ const MainContainer = () => {
             <Route path ="/" element ={<LandingContainer/>}/>
             <Route path ="/orders/*" element = {<OrderContainer orders = {orders} getById = {getById} parts ={parts}/>} />
             <Route path ="/parts/*" element = {<PartContainer parts = {parts} items = {items} getById = {getById}/>}/>
+            <Route path = "*" element ={<NotFound/>}></Route>
           </Routes>
         </div>
     )
