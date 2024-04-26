@@ -1,0 +1,14 @@
+.about{
+    width:70%;
+    margin:auto;
+}
+
+.about ul{
+    list-style: disc;
+    text-align: left;
+    justify-content: left;
+}
+
+.about li{
+    margin-bottom: 5px;
+}
