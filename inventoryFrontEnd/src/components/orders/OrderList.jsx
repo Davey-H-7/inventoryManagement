@@ -19,14 +19,14 @@ const OrderList = ({orders}) => {
       
 
     return (
-        <>
-        <h1> All Orders </h1>
-        <button onClick = {()=> window.location="/"}>Return to Home</button>
-        <ul>
-        {orderNodes}
-        </ul>
-        <button onClick = {onAdd}>Add New Order</button>
-        </>
+        <div className='orderList'>
+            <h1> All Orders </h1>
+            <button onClick = {()=> window.location="/"}>Return to Home</button>
+            <button onClick = {onAdd}>Add New Order</button>
+            <ul>
+                {orderNodes}
+            </ul>
+        </div>
     )
 }
 

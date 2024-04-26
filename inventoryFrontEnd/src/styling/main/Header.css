@@ -1,11 +1,32 @@
 .header {
     background-color:#FFECBD;
     width: 100%;
+ 
 }
 
 .header img{
-    display: flex;
+    
     justify-content: left;
     max-height: 8vh;
     margin-left: 2%;
+}
+
+.header .links{
+    display: flex;
+    justify-content: space-around;  
+}
+
+.header a{
+    padding:2%;
+    font-style: normal;
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 1000;
+}
+
+.header a:hover{
+    color: #FFECBD;
+    background-color: black;
+
 }
