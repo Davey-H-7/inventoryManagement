@@ -1,8 +1,7 @@
 .orderContainer{
-    max-width: 100%;
-
+    max-width: 80%;
+    margin: auto;
 }
-
 
 ul {
     display:flex;
@@ -15,21 +14,21 @@ ul {
 
 .order {
     border-width: 2px;
-    border-style: double;
+    border-style: solid;
+    border-radius:10px;
     width: 30%;
     color: white;
-    
 }
 
 .order:hover{
-    color: #213547;
+    color: var(--tertiary);
 }
 
 .detailItemList ul{
     list-style:square;
     display:flex;
     width:80%;
-    border: 1px double white;
+    border: 1px solid white;
     margin: auto;
     padding:0;
 }
@@ -91,6 +90,7 @@ ul {
     padding: 5%;
     border-radius: 8px;
     margin-bottom: 5%;
+    
 }
 
 .symbol {

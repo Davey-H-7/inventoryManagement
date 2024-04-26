@@ -53,6 +53,7 @@ const OrderDetail = ({order, handleDelete, parts}) => {
                 <h2>Client: {order.client}</h2>
                 <h3>Due on: {order.dueDate}</h3>
                 {orderCompletion? <h3>Order Ready to Ship</h3>: <h3>Order in Progress</h3>}
+                <button onClick = {()=> window.location="/orders"}>Return to Orders</button>
             </div>
             <div className="detailItemList">
                 <ul>
@@ -64,7 +65,6 @@ const OrderDetail = ({order, handleDelete, parts}) => {
             </div>
             <div>
                 <button onClick={() => handleAddFormDisplay()}>Add to Order</button>
-                <button onClick = {()=> window.location="/orders"}>Return to Orders</button>
                 <button onClick = {() => handleDelete(order)}>Delete order</button>
             </div>
             {addFormDisplay?<ItemForm order = {order} parts = {parts} handleAddFormDisplay={handleAddFormDisplay}/>:<br/>}
