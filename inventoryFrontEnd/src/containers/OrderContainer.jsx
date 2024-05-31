@@ -1,6 +1,7 @@
 import OrderList from "../components/orders/OrderList"
 import OrderForm from "../components/orders/OrderForm"
 import OrderDetail from "../components/orders/OrderDetail"
+import OrderFormEdit from "../components/orders/OrderFormEdit"
 import '../styling//orders/OrderContainer.css'
 import {Routes, Route, useParams} from "react-router-dom"
 
@@ -25,7 +26,6 @@ const OrderContainer = ({orders, getById, parts}) => {
         if(foundOrder){
             return <OrderDetail order = {foundOrder} handleDelete ={handleDelete} parts = {parts}/>
         }
-        // else{window.location ="/orders"}
     }
 
     const handleDelete = (order) => {
@@ -36,6 +36,23 @@ const OrderContainer = ({orders, getById, parts}) => {
         window.location ="/orders"
       }
 
+      const handleUpdate = (order) =>{
+        fetch("/api/items/" + order.id, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(order)
+        })
+    }
+
+    const OrderEditWrapper = () => {
+        console.log("test");
+        const {id}= useParams();
+        const foundOrder = getById(id, orders);
+        if(foundOrder){
+            return <OrderFormEdit handleUpdate = {handleUpdate} currentOrder = {foundOrder}/>
+        }
+    }
+
 return(
     <div className="orderContainer">
         <Routes>
@@ -44,6 +61,8 @@ return(
             <Route path ="/new" element = {<OrderForm  handlePost ={handlePost}/>}/>
 
             <Route path ="/:id" element = {<OrderDetailWrapper/>}/>
+
+            <Route path ="/:id/edit" element = {<OrderEditWrapper/>}/>
         </Routes>
     </div>
 )   

@@ -6,6 +6,7 @@ import ItemFormEdit from "../items/ItemFormEdit";
 
 const OrderDetail = ({order, handleDelete, parts}) => {
 
+
     const [addFormDisplay, setAddFormDisplay] = useState(false);
     const [foundItem, setFoundItem] = useState(false);
 
@@ -16,7 +17,6 @@ const OrderDetail = ({order, handleDelete, parts}) => {
 
     const handleAddFormDisplay = () => {
         event.preventDefault()
-        console.log(addFormDisplay);
         setAddFormDisplay(!addFormDisplay);
     }
 
@@ -30,7 +30,6 @@ const OrderDetail = ({order, handleDelete, parts}) => {
 
 
     const ItemFormEditWrapper = () => {
-        console.log(foundItem)
         if (foundItem){
         return <ItemFormEdit order = {order} parts = {parts} currentItem = {foundItem}/>
     }}
@@ -38,10 +37,6 @@ const OrderDetail = ({order, handleDelete, parts}) => {
     const detailItems = order.items.map((item) => {
       return <Item key = {item.id} item ={item} handleItemDelete={handleItemDelete} getItem = {getItem}/>
     })
-
-
- 
-
 
     const orderCompletion = statusCheck(order.items);
   
@@ -66,6 +61,7 @@ const OrderDetail = ({order, handleDelete, parts}) => {
             <div>
                 <button onClick={() => handleAddFormDisplay()}>Add to Order</button>
                 <button onClick = {() => handleDelete(order)}>Delete order</button>
+                <button onClick = {() => window.location ='/orders/' + order.id + '/edit'}>Update order</button>
             </div>
             {addFormDisplay?<ItemForm order = {order} parts = {parts} handleAddFormDisplay={handleAddFormDisplay}/>:<br/>}
             {foundItem?<ItemFormEditWrapper/>:<br/>}
