@@ -37,11 +37,14 @@ const OrderContainer = ({orders, getById, parts}) => {
       }
 
       const handleUpdate = (order) =>{
-        fetch("/api/items/" + order.id, {
+        event.preventDefault()
+        console.log(order);
+        fetch("/api/orders/" + order.id, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(order)
         })
+        .then(() => window.location ='/orders')
     }
 
     const OrderEditWrapper = () => {

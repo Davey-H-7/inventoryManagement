@@ -5,8 +5,10 @@ const OrderFormEdit = ({handleUpdate, currentOrder}) => {
   
 const [stateOrder, setStateOrder] = useState(
     {
+        id: currentOrder.id,
         client: currentOrder.client,
         dueDate: currentOrder.dueDate,
+        items: currentOrder.items
     })
 
     const handleChange = function(event) {
