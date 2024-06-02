@@ -33,7 +33,7 @@ const PartDetail = ({part, items, handleDelete}) => {
         :<p>No orders found</p>}
         <button onClick = {()=> window.location="/parts"}>Return to Parts</button>
         <button onClick={() => handleDelete(part)}> Delete Part </button>
-    </div>
+        <button onClick = {() => window.location ='/parts/' + part.id + '/edit'}>Update part</button>    </div>
     )
 }
  

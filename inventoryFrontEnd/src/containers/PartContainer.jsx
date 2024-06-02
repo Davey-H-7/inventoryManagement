@@ -2,6 +2,7 @@ import { Routes, Route, useParams } from "react-router-dom";
 import PartList from "../components/parts/PartList";
 import PartDetail from "../components/parts/PartDetail";
 import PartForm from "../components/parts/PartForm";
+import PartFormEdit from "../components/parts/PartFormEdit";
 import '../styling/parts/PartContainer.css'
 
 const PartContainer = ({parts, items, getById}) => {
@@ -41,7 +42,7 @@ const PartContainer = ({parts, items, getById}) => {
 
     const PartEditWrapper = () => {
         const {id}= useParams();
-        const foundOrder = getById(id, parts);
+        const foundPart = getById(id, parts);
         if(foundPart){
             return <PartFormEdit handleUpdate = {handleUpdate} currentPart = {foundPart}/>
         }
