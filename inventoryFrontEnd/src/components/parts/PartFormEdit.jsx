@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-const PartForm = ({handlePost}) => {
+const PartFormEdit = ({handleUpdate, currentPart}) => {
 
     const [statePart, setStatePart] = useState({
-        model: "",
-        description:""
+        id: currentPart.id,
+        model: currentPart.model,
+        description: currentPart.description
     });
 
     const handleChange = function(event) {
@@ -16,15 +17,15 @@ const PartForm = ({handlePost}) => {
   
       const handleSubmit = (event) => {
           event.preventDefault();
-          handlePost(statePart);
+          handleUpdate(statePart);
       }
 
     return ( 
         <div className="newPartForm">
             <h1>New Part Details</h1>
             <form onSubmit={handleSubmit}>
-                <input type ="text" name = "model" placeholder ="Enter Model Name/Number" onChange={handleChange}/>
-                <input type ="text" name = "description" placeholder ="Part Description" onChange={handleChange}/>
+                <input type ="text" name = "model" placeholder = {currentPart.model} onChange={handleChange}/>
+                <input type ="text" name = "description" placeholder ={currentPart.description} onChange={handleChange}/>
                 <br/>
                 <button type ="submit">Submit</button>
             </form>
@@ -32,5 +33,5 @@ const PartForm = ({handlePost}) => {
         </div>
      )
 }
- 
-export default PartForm;
+
+export default PartFormEdit

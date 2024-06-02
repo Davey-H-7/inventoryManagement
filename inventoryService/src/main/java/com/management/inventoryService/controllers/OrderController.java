@@ -42,7 +42,7 @@ public class OrderController {
                     .orElseThrow();
 
             updateOrder.setClient(newOrder.getClient());
-            updateOrder.setItems(newOrder.getItems());
+            updateOrder.setDueDate(newOrder.getDueDate());
             orderRepository.save(updateOrder);
 
             return new ResponseEntity<>(updateOrder, HttpStatus.OK);

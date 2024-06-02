@@ -1,12 +1,14 @@
 import { useState } from "react"
 
 
-const OrderForm = ({handlePost}) => {
+const OrderFormEdit = ({handleUpdate, currentOrder}) => {
   
 const [stateOrder, setStateOrder] = useState(
     {
-        client: "",
-        dueDate: "",
+        id: currentOrder.id,
+        client: currentOrder.client,
+        dueDate: currentOrder.dueDate,
+        items: currentOrder.items
     })
 
     const handleChange = function(event) {
@@ -18,7 +20,7 @@ const [stateOrder, setStateOrder] = useState(
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        handlePost(stateOrder);
+        handleUpdate(stateOrder);
     }
 
 return (
@@ -29,9 +31,10 @@ return (
             <h3> To be shipped by: </h3>
             <input type = "date" name = "dueDate" onChange={handleChange} value = {stateOrder.dueDate}/>
             <button type = "submit"> Submit </button>
+            <button onClick = {() => window.location ='/orders'} >Cancel</button>
         </form>
-        <button onClick = {() => window.location ='/orders'} >Cancel</button>
+        
     </div>
 )
 }
-export default OrderForm
+export default OrderFormEdit
