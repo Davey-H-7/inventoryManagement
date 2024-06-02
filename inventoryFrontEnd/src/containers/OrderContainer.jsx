@@ -38,7 +38,7 @@ const OrderContainer = ({orders, getById, parts}) => {
 
       const handleUpdate = (order) =>{
         event.preventDefault()
-        console.log(order);
+        console.log(order.items[0]);
         fetch("/api/orders/" + order.id, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
@@ -48,7 +48,6 @@ const OrderContainer = ({orders, getById, parts}) => {
     }
 
     const OrderEditWrapper = () => {
-        console.log("test");
         const {id}= useParams();
         const foundOrder = getById(id, orders);
         if(foundOrder){

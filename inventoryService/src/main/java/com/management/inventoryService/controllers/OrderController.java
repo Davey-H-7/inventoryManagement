@@ -43,9 +43,6 @@ public class OrderController {
 
             updateOrder.setClient(newOrder.getClient());
             updateOrder.setDueDate(newOrder.getDueDate());
-            updateOrder.setPriority(newOrder.getPriority());
-            System.out.println(newOrder.getItems());
-            updateOrder.setItems(newOrder.getItems());
             orderRepository.save(updateOrder);
 
             return new ResponseEntity<>(updateOrder, HttpStatus.OK);
