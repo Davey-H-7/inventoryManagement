@@ -9,7 +9,7 @@ To create a management app for a fabrication company:
 ## Set Up
 - clone the repository onto local machine
 
-- In a terminal create database with name 'fabrication_inventory'
+- In a terminal create database with name 'maker_tracker'
 
 - To run the backend:
   - Open the project 'inventoryService' in IDE such as IntelliJ
