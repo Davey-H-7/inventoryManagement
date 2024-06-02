@@ -29,9 +29,8 @@ return (
             <h3> To be shipped by: </h3>
             <input type = "date" name = "dueDate" onChange={handleChange} value = {stateOrder.dueDate}/>
             <button type = "submit"> Submit </button>
-            <button onClick = {() => window.location ='/orders'} >Cancel</button>
         </form>
-        
+        <button onClick = {() => window.location ='/orders'} >Cancel</button>
     </div>
 )
 }

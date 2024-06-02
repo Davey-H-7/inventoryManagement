@@ -38,7 +38,6 @@ const OrderContainer = ({orders, getById, parts}) => {
 
       const handleUpdate = (order) =>{
         event.preventDefault()
-        console.log(order.items[0]);
         fetch("/api/orders/" + order.id, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},

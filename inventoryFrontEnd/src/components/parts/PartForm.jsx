@@ -27,8 +27,8 @@ const PartForm = ({handlePost}) => {
                 <input type ="text" name = "description" placeholder ="Part Description" onChange={handleChange}/>
                 <br/>
                 <button type ="submit">Submit</button>
-                <button onClick = {() => window.location ='/parts'} >Cancel</button>
             </form>
+            <button onClick = {() => window.location ='/parts'} >Cancel</button>
         </div>
      )
 }

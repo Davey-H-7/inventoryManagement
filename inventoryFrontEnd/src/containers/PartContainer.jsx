@@ -29,12 +29,31 @@ const PartContainer = ({parts, items, getById}) => {
         return <PartDetail part = {foundPart} items ={items} handleDelete={handleDelete}/>
        }
 
+       const handleUpdate = (part) =>{
+        event.preventDefault()
+        fetch("/api/parts/" + part.id, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(part)
+        })
+        .then(() => window.location ='/parts')
+    }
+
+    const PartEditWrapper = () => {
+        const {id}= useParams();
+        const foundOrder = getById(id, parts);
+        if(foundPart){
+            return <PartFormEdit handleUpdate = {handleUpdate} currentPart = {foundPart}/>
+        }
+    }
+
     return ( 
         <div className="partsContainer">
         <Routes>
             <Route path="/" element = {<PartList parts ={parts}/>}/>
             <Route path ="/new" element = {<PartForm handlePost ={handlePost} /> }/>
             <Route path ="/:id" element = {<PartDetailWrapper/>}/>
+            <Route path ="/:id/edit" element = {<PartEditWrapper/>}/>
         </Routes>
 
     </div>
