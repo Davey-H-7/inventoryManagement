@@ -6,13 +6,14 @@ const PartDetail = ({part, items, handleDelete}) => {
     const partItems = items.filter((partItem) => partItem.part.id == part.id)
     let itemNodes = [];
 
-    if (length.partItems > 0){
+    if (partItems[0]){
       itemNodes= partItems.map((item) => {
       return <Link to = {"/orders/" +item.order.id} className="listItem" key ={item.id}>{item.order.client} Order No:{item.order.id} Amount: {item.quantity}</Link>
     })
   }
 
     const calculateTotal = () => {
+      console.log(partItems);
       partItems.forEach(element => {
         totalQuantity += element.quantity;
       });
@@ -26,7 +27,7 @@ const PartDetail = ({part, items, handleDelete}) => {
         <h2>{part.description}</h2>
         <h3> Total quantity across orders: {totalQuantity}</h3>
         <h3>Included in orders:</h3>
-        {itemNodes.length > 0 ?
+        {partItems[0] ?
          <ul className="detailOrderList">
             {itemNodes}
         </ul>

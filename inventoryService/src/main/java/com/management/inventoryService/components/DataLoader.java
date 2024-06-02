@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 
 
 
-//@Profile("!test")
-//@Component
+@Profile("!test")
+@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
