@@ -1,9 +1,12 @@
 class Request {
 
+    constructor(){
+    this.baseURL = "http://localhost:8080";
+    }
+
     async get(url){
-        const baseURL = "http://http://13.51.146.181:8080"
-        console.log(url);
-        const result = await fetch(url);
+        console.log(this.baseURL + url);
+        const result = await fetch(this.baseURL + url);
         return result.json();
     }
 }

@@ -5,11 +5,11 @@ import PartForm from "../components/parts/PartForm";
 import PartFormEdit from "../components/parts/PartFormEdit";
 import '../styling/parts/PartContainer.css'
 
-const PartContainer = ({parts, items, getById}) => {
+const PartContainer = ({parts, items, getById, request}) => {
 
   const handlePost = (part) =>{
     console.log("handlePost triggered");
-    fetch("/api/parts", {
+    fetch(request.baseURL + "/api/parts", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(part)
@@ -18,7 +18,7 @@ const PartContainer = ({parts, items, getById}) => {
 }
 
     const handleDelete = (part) => {
-        fetch("/api/parts/" + part.id, {
+        fetch(request.baseURL + "/api/parts/" + part.id, {
           method: "DELETE"
         })
         .then( window.location ="/parts")
@@ -32,7 +32,7 @@ const PartContainer = ({parts, items, getById}) => {
 
        const handleUpdate = (part) =>{
         event.preventDefault()
-        fetch("/api/parts/" + part.id, {
+        fetch(request.baseURL + "/api/parts/" + part.id, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(part)
