@@ -9,7 +9,10 @@ import Header from '../components/landing/Header';
 import "../styling/main/MainContainer.css";
 import AboutContainer from './AboutContainer';
 
+
+
 const MainContainer = () => {
+
     const request = new Request
 
     const [orders, setOrders] = useState([]);
@@ -25,6 +28,7 @@ const MainContainer = () => {
 
       Promise.all([itemsPromise, ordersPromise, partsPromise])
       .then((data) => {
+        console.log(data);
         setItems(data[0])
         setOrders(data[1])
         setParts(data[2])
@@ -54,3 +58,7 @@ const MainContainer = () => {
 }
 
 export default MainContainer;
+
+
+ 
+ 
