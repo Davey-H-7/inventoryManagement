@@ -10,7 +10,7 @@ const OrderDetail = ({order, handleDelete, parts, request}) => {
     const [foundItem, setFoundItem] = useState(false);
 
    const getItem = (item) => {
-        console.log(item);
+        // console.log(item);
        setFoundItem(item)
    }
 

@@ -4,7 +4,7 @@ const ItemFormEdit = ({order, parts, currentItem, request}) => {
 
     const handleItemUpdate = (item) =>{
         event.preventDefault()
-        console.log(item);
+        // console.log(item);
         fetch(request.baseURL + "/api/items/" + item.id, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
