@@ -1,13 +1,13 @@
 import {useState} from 'react';
 
-const ItemForm = ({order, parts, handleAddFormDisplay}) => {
+const ItemForm = ({order, parts, handleAddFormDisplay, request}) => {
 
 
 
     const handleItemPost = (item) =>{
         event.preventDefault()
         console.log("handlePost triggered");
-        fetch("/api/items", {
+        fetch(request.baseURL + "/api/items", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(item)

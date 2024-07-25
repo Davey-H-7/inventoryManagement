@@ -4,15 +4,16 @@ import OrderDetail from "../components/orders/OrderDetail"
 import OrderFormEdit from "../components/orders/OrderFormEdit"
 import '../styling//orders/OrderContainer.css'
 import {Routes, Route, useParams} from "react-router-dom"
+import Request from "../helpers/request"
 
 
 
 
-const OrderContainer = ({orders, getById, parts}) => {
+const OrderContainer = ({orders, getById, parts, request}) => {
 
     const handlePost = (order) =>{
         console.log("handlePost triggered");
-        fetch("/api/orders", {
+        fetch(request.baseURL + "/api/orders", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(order)
@@ -24,12 +25,12 @@ const OrderContainer = ({orders, getById, parts}) => {
         const {id}= useParams();
         const foundOrder = getById(id, orders);
         if(foundOrder){
-            return <OrderDetail order = {foundOrder} handleDelete ={handleDelete} parts = {parts}/>
+            return <OrderDetail order = {foundOrder} handleDelete ={handleDelete} parts = {parts} request = {request}/>
         }
     }
 
     const handleDelete = (order) => {
-        fetch("/api/orders/" + order.id, {
+        fetch(request.baseURL + "/api/orders/" + order.id, {
           method: "DELETE"
         }
         )
@@ -38,7 +39,7 @@ const OrderContainer = ({orders, getById, parts}) => {
 
       const handleUpdate = (order) =>{
         event.preventDefault()
-        fetch("/api/orders/" + order.id, {
+        fetch(request.baseURL + "/api/orders/" + order.id, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(order)

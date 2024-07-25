@@ -4,14 +4,13 @@ import Item from "../items/Item";
 import ItemFormEdit from "../items/ItemFormEdit";
 
 
-const OrderDetail = ({order, handleDelete, parts}) => {
-
+const OrderDetail = ({order, handleDelete, parts, request}) => {
 
     const [addFormDisplay, setAddFormDisplay] = useState(false);
     const [foundItem, setFoundItem] = useState(false);
 
    const getItem = (item) => {
-        console.log(item);
+        // console.log(item);
        setFoundItem(item)
    }
 
@@ -21,7 +20,7 @@ const OrderDetail = ({order, handleDelete, parts}) => {
     }
 
     const handleItemDelete = ((item) => {
-        fetch("/api/items/" + item.id, {
+        fetch(request.baseURL + "/api/items/" + item.id, {
           method: "DELETE"
         }
         )
@@ -31,7 +30,7 @@ const OrderDetail = ({order, handleDelete, parts}) => {
 
     const ItemFormEditWrapper = () => {
         if (foundItem){
-        return <ItemFormEdit order = {order} parts = {parts} currentItem = {foundItem}/>
+        return <ItemFormEdit order = {order} parts = {parts} currentItem = {foundItem} request ={request}/>
     }}
 
     const detailItems = order.items.map((item) => {
@@ -63,7 +62,7 @@ const OrderDetail = ({order, handleDelete, parts}) => {
                 <button onClick = {() => handleDelete(order)}>Delete order</button>
                 <button onClick = {() => window.location ='/orders/' + order.id + '/edit'}>Update order</button>
             </div>
-            {addFormDisplay?<ItemForm order = {order} parts = {parts} handleAddFormDisplay={handleAddFormDisplay}/>:<br/>}
+            {addFormDisplay?<ItemForm order = {order} parts = {parts} handleAddFormDisplay={handleAddFormDisplay} request = {request}/>:<br/>}
             {foundItem?<ItemFormEditWrapper/>:<br/>}
         </div>
         
