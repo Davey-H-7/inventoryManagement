@@ -1,7 +1,7 @@
 class Request {
 
     constructor(){
-    this.baseURL = "http://localhost:8080";
+    this.baseURL = "http://13.51.146.181:8080";
     }
 
     async get(url){
