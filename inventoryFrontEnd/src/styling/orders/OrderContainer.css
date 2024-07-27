@@ -7,17 +7,19 @@ ul {
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin:auto;
+    margin:0;
     max-width: 100%;
-
+    padding: 0;
 }
 
 .order {
     border-width: 2px;
     border-style: solid;
     border-radius:10px;
-    width: 30%;
+    width: 20%;
+    min-width: 250px;
     color: white;
+    text-decoration: none;
 }
 
 .order:hover{
@@ -27,7 +29,7 @@ ul {
 .detailItemList ul{
     list-style:square;
     display:flex;
-    width:80%;
+    width:100%;
     border: 1px solid white;
     margin: auto;
     padding:0;
@@ -104,6 +106,18 @@ ul {
 .symbol:hover {
     cursor: pointer;
 }
+
+.orderDisplay{
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+    .orderDisplay{
+        flex-direction: row;
+    }  
+}
+
 
 
 

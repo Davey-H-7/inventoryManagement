@@ -4,7 +4,7 @@ import OrderDetail from "../components/orders/OrderDetail"
 import OrderFormEdit from "../components/orders/OrderFormEdit"
 import '../styling//orders/OrderContainer.css'
 import {Routes, Route, useParams} from "react-router-dom"
-import Request from "../helpers/request"
+import OrderButtons from "../components/orders/OrderButtons"
 
 
 
@@ -57,6 +57,7 @@ const OrderContainer = ({orders, getById, parts, request}) => {
 
 return(
     <div className="orderContainer">
+        <OrderButtons/>
         <Routes>
             <Route path ="/" element ={<OrderList orders ={orders}/>}/>
 

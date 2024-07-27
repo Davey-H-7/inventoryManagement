@@ -16,7 +16,7 @@
     justify-content: space-around;  
 }
 
-.header a{
+.header .links a{
     padding:2%;
     font-style: normal;
     color: black;
@@ -25,7 +25,7 @@
     font-weight: 1000;
 }
 
-.header a:hover{
+.header .links a:hover{
     color: #FFECBD;
     background-color: black;
 

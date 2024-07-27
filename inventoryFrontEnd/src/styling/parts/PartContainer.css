@@ -15,8 +15,11 @@ ul {
     border-width: 2px;
     border-style: solid;
     border-radius:10px;
-    width: 30%;
+    width: 20%;
+    min-width: 250px;
     color: white;
+    text-decoration: none;
+    font-size: xx-large;
 }
 
 .part:hover{
