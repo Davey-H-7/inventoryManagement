@@ -1,11 +1,11 @@
 import {useState} from 'react';
 
-const ItemFormEdit = ({order, parts, currentItem}) => {
+const ItemFormEdit = ({order, parts, currentItem, request}) => {
 
     const handleItemUpdate = (item) =>{
         event.preventDefault()
-        console.log(item);
-        fetch("/api/items/" + item.id, {
+        // console.log(item);
+        fetch(request.baseURL + "/api/items/" + item.id, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(item)

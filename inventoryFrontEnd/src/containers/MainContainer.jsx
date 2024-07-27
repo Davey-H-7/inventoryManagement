@@ -9,7 +9,10 @@ import Header from '../components/landing/Header';
 import "../styling/main/MainContainer.css";
 import AboutContainer from './AboutContainer';
 
+
+
 const MainContainer = () => {
+
     const request = new Request
 
     const [orders, setOrders] = useState([]);
@@ -25,6 +28,7 @@ const MainContainer = () => {
 
       Promise.all([itemsPromise, ordersPromise, partsPromise])
       .then((data) => {
+        console.log(data);
         setItems(data[0])
         setOrders(data[1])
         setParts(data[2])
@@ -44,8 +48,8 @@ const MainContainer = () => {
           <Routes>
             <Route path ="/" element ={<LandingContainer/>}/>
             <Route path ="/about" element ={<AboutContainer/>}/>
-            <Route path ="/orders/*" element = {<OrderContainer orders = {orders} getById = {getById} parts ={parts}/>} />
-            <Route path ="/parts/*" element = {<PartContainer parts = {parts} items = {items} getById = {getById}/>}/>
+            <Route path ="/orders/*" element = {<OrderContainer orders = {orders} getById = {getById} parts ={parts} request = {request}/>} />
+            <Route path ="/parts/*" element = {<PartContainer parts = {parts} items = {items} getById = {getById} request ={request}/>}/>
             <Route path = "*" element ={<NotFound/>}></Route>
           </Routes>
         </div>
@@ -54,3 +58,7 @@ const MainContainer = () => {
 }
 
 export default MainContainer;
+
+
+ 
+ 
