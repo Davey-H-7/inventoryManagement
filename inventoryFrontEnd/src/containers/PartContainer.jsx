@@ -4,6 +4,7 @@ import PartDetail from "../components/parts/PartDetail";
 import PartForm from "../components/parts/PartForm";
 import PartFormEdit from "../components/parts/PartFormEdit";
 import '../styling/parts/PartContainer.css'
+import PartButtons from "../components/parts/PartButtons";
 
 const PartContainer = ({parts, items, getById, request}) => {
 
@@ -50,6 +51,7 @@ const PartContainer = ({parts, items, getById, request}) => {
 
     return ( 
         <div className="partsContainer">
+        <PartButtons/>
         <Routes>
             <Route path="/" element = {<PartList parts ={parts}/>}/>
             <Route path ="/new" element = {<PartForm handlePost ={handlePost} /> }/>

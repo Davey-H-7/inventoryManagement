@@ -6,7 +6,7 @@ import "../../styling/main/Header.css"
 const Header = () => {
     return ( 
         <div className="header">
-            <img src={logo}/>
+            <a href = "/"><img src={logo}/> </a>
             <ul className="links">
                 <Link to="/about">About</Link>
                 <Link to="/orders">Orders</Link>
