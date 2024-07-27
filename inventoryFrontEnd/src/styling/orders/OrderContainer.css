@@ -59,26 +59,32 @@ ul {
 
 .newItemForm {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     padding:5%;
-    gap:2%;
-    justify-content: center;
-    justify-items: baseline;
+    gap:5%;
+   
+    vertical-align: middle;
+    
+   
 }
 
 .newItemForm input {
     padding:5%;
     border-radius: 10px;
+    width: 90%;
 }
 
 .newItemForm select {
-    padding:2%;
+    padding:5%;
     border-radius: 10px;
+    width: 100%;
+   
 }
 
 .newItemForm .buttons {
     padding:0;
     display:flex;
+    justify-content: center;
 }
 
 .newOrderForm{
@@ -112,10 +118,30 @@ ul {
     flex-direction: column;
 }
 
-@media only screen and (min-width: 768px) {
+.forms{
+    width:80%;
+    margin: auto;
+    flex-direction: column;
+}
+
+
+@media only screen and (min-width: 1080px) {
+
     .orderDisplay{
+        display: flex;
         flex-direction: row;
-    }  
+    }
+
+    .detail{
+        width:70%
+    }
+
+    .forms{
+        width:30%;
+    }
+    
+
+
 }
 
 
