@@ -58,8 +58,10 @@ const ItemFormEdit = ({order, parts, currentItem, request}) => {
           }
     
     return (
-
+    <div>
+         <h2>Edit Details</h2>
         <form className="newItemForm" onSubmit ={handleSubmit}>
+           
             <select name = "part" onChange={handlePart} default value="select-part">
                 <option disabled value ="select-part">Select a part</option>
                     {partOptions}
@@ -82,7 +84,7 @@ const ItemFormEdit = ({order, parts, currentItem, request}) => {
             <button onClick = {() => window.location ='/orders/' + order.id } >Cancel</button>
             </div>
         </form>
-            
+    </div>
  
     )
 }

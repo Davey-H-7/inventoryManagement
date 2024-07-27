@@ -4,7 +4,7 @@ const PartList = ({parts}) => {
 
 
     if(parts.length === 0){
-        return <p>Loading parts</p>
+        return <h2>No parts found! Try adding one</h2>
     }
   
     const partNodes = parts.map((part) => {

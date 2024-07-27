@@ -55,7 +55,8 @@ const ItemForm = ({order, parts, handleAddFormDisplay, request}) => {
         }
     
     return (
-
+    <div>
+        <h2>Add to Order</h2>
         <form className="newItemForm" onSubmit ={handleSubmit}>
             <select name = "part" onChange={handlePart} defaultValue="select-part">
                 <option disabled value ="select-part">Select a part</option>
@@ -70,7 +71,7 @@ const ItemForm = ({order, parts, handleAddFormDisplay, request}) => {
             <button onClick = {() => handleAddFormDisplay()} >Cancel</button>
             </div>
         </form>
-            
+    </div>
  
     )
 }
